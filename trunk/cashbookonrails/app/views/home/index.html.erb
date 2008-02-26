@@ -10,7 +10,7 @@
 				<div class="content">
 					<img src="images/pic1.jpg" class="picA floatleft" alt="" />
 					<p>Be welcome. <strong>cashbook</strong><sup>1.0</sup> is a personal financial application, helping anyone to manage (in a simple way) his money, from whom the must receive money and for whom he own money :)</p>
-					<p>You can find more of our free work at this site or <a href="http://www.nodethirtythree.com/">our site</a>, or some of our commercial work on <a href="http://www.4templates.com/?aff=n33">4Templates.com</a>, a commercial website template site.</p>
+					<p>You can find more of our free work at this site or <a href="http://code.google.com/p/cashbookonrails/">our site</a>.</p>
 				</div>			
 				<div class="footer">
 					<ul>
@@ -31,8 +31,18 @@
 		
 			<h3>Statistics</h3>
 			<div class="content">
-				<img src="images/pic2.jpg" class="picB" alt="" />
-				<p><strong>Nullam turpis</strong> vestibulum et sed dolore. Nulla facilisi. Sed tortor. lobortis commodo. <a href="#">More ...</a></p>
+				<table>
+				<% for account in @accounts %>
+				  <tr>
+				    <td><%= account.name %></td>
+				    <td><%= account.total %></td>
+				  </tr>
+				<% end %>				
+				<tr>
+					<td><strong>Balance</strong></td>
+					<td><%= Account.balance %></td>
+				</tr>
+				</table>
 			</div>
 
 

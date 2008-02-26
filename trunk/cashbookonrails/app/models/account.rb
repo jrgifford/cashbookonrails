@@ -11,5 +11,14 @@ class Account < ActiveRecord::Base
     total_credit = self.transactions.sum(:amount, :conditions => {:credit => true}).to_f
     total_debit = self.transactions.sum(:amount, :conditions => {:credit => false}).to_f
     total_credit - total_debit
-  end  
+  end 
+  
+  def self.balance
+    total = 0    
+    accounts = Account.find(:all)    
+    accounts.each do |account|
+      total += account.total  
+    end    
+    total
+  end
 end

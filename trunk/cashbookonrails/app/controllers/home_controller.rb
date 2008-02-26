@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   layout "application"
-  def index    
+  def index
+    @accounts = Account.find(:all)
   end
 end
