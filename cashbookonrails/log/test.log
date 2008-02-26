@@ -5261,3 +5261,437 @@ ActiveScaffold: extending RESTful routes for bills
   [4;35;1mTransaction Create (0.002000)[0m   [0mINSERT INTO transactions ("updated_at", "account_id", "number", "credit", "date", "payee_category", "amount", "created_at") VALUES('2008-02-26 14:13:06', 1, NULL, 'f', '2008-02-24 14:13:06', 'MyString', 345.89, '2008-02-26 14:13:06')[0m
   [4;36;1mTransaction Load (0.001000)[0m   [0;1mSELECT * FROM transactions WHERE (transactions."number" IS NULL) [0m
   [4;35;1mCategory Load (0.001000)[0m   [0mSELECT * FROM categories WHERE (categories."id" = 2) [0m
+ActiveScaffold: extending RESTful routes for reports
+ActiveScaffold: extending RESTful routes for accounts
+ActiveScaffold: extending RESTful routes for payees
+ActiveScaffold: extending RESTful routes for categories
+ActiveScaffold: extending RESTful routes for transactions
+ActiveScaffold: extending RESTful routes for bills
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT count(*) AS count_all FROM accounts [0m
+
+
+Processing AccountsController#create (for 0.0.0.0 at 2008-02-26 16:16:53) [POST]
+  Session ID: 
+  Parameters: {"account"=>{}, "action"=>"create", "controller"=>"accounts"}
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT count(*) AS count_all FROM accounts [0m
+  [4;36;1mAccount Load (0.000000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+
+
+Processing AccountsController#destroy (for 0.0.0.0 at 2008-02-26 16:16:53) [DELETE]
+  Session ID: 
+  Parameters: {"action"=>"destroy", "id"=>"1", "controller"=>"accounts"}
+  [4;35;1mAccount Load (0.001000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+  [4;36;1mAccount Destroy (0.002000)[0m   [0;1m DELETE FROM accounts
+ WHERE "id" = 1
+[0m
+Redirected to http://test.host/accounts/index/1
+Completed in 0.01300 (76 reqs/sec) | DB: 0.00500 (38%) | 302 Found [http://test.host/accounts/1]
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT count(*) AS count_all FROM accounts [0m
+  [4;36;1mAccount Load (0.000000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+
+
+Processing AccountsController#edit (for 0.0.0.0 at 2008-02-26 16:16:53) [GET]
+  Session ID: 
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"accounts"}
+  [4;35;1mAccount Load (0.004000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/update_form
+Rendered accounts/_messages (0.00500)
+Rendered accounts/_form_messages (0.01500)
+Rendered accounts/_form_attribute (0.00400)
+Rendered accounts/_form_attribute (0.00000)
+Rendered accounts/_form (0.03300)
+Rendered accounts/_update_form (0.07400)
+Completed in 0.12300 (8 reqs/sec) | Rendering: 0.10400 (84%) | DB: 0.00400 (3%) | 200 OK [http://test.host/accounts/1/edit]
+
+
+Processing AccountsController#index (for 0.0.0.0 at 2008-02-26 16:16:53) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;36;1mSQL (0.000000)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT count(DISTINCT accounts.id) AS count_all FROM accounts LEFT OUTER JOIN transactions ON transactions.account_id = accounts.id [0m
+  [4;36;1mAccount Load IDs For Limited Eager Loading (0.001000)[0m   [0;1mSELECT id FROM accounts ORDER BY accounts."id" ASC LIMIT 10 OFFSET 0[0m
+  [4;35;1mAccount Load Including Associations (0.001000)[0m   [0mSELECT accounts."id" AS t0_r0, accounts."name" AS t0_r1, accounts."number" AS t0_r2, accounts."created_at" AS t0_r3, accounts."updated_at" AS t0_r4, transactions."id" AS t1_r0, transactions."date" AS t1_r1, transactions."number" AS t1_r2, transactions."payee_category" AS t1_r3, transactions."amount" AS t1_r4, transactions."credit" AS t1_r5, transactions."account_id" AS t1_r6, transactions."created_at" AS t1_r7, transactions."updated_at" AS t1_r8 FROM accounts LEFT OUTER JOIN transactions ON transactions.account_id = accounts.id WHERE accounts.id IN (1, 2) ORDER BY accounts."id" ASC[0m
+Rendering template within layouts/application
+Rendering accounts/list
+Rendered accounts/_list_header (0.08000)
+Rendered accounts/_list_column_headings (0.01100)
+Rendered accounts/_messages (0.00000)
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 1) AND (transactions."credit" = 't') [0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 1) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.01400)
+Rendered accounts/_list_record (0.04100)
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 't') [0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00100)
+Rendered accounts/_list_record (0.01100)
+Rendered accounts/_list (0.10000)
+Completed in 0.35500 (2 reqs/sec) | Rendering: 0.23900 (67%) | DB: 0.00500 (1%) | 200 OK [http://test.host/accounts]
+
+
+Processing AccountsController#new (for 0.0.0.0 at 2008-02-26 16:16:54) [GET]
+  Session ID: 
+  Parameters: {"action"=>"new", "controller"=>"accounts"}
+Rendering template within layouts/application
+Rendering accounts/create_form
+Rendered accounts/_messages (0.00100)
+Rendered accounts/_form_messages (0.00200)
+Rendered accounts/_form_attribute (0.00100)
+Rendered accounts/_form_attribute (0.01700)
+Rendered accounts/_form (0.02300)
+Rendered accounts/_create_form (0.06200)
+Completed in 0.08900 (11 reqs/sec) | Rendering: 0.08600 (96%) | DB: 0.00000 (0%) | 200 OK [http://test.host/accounts/new]
+  [4;36;1mAccount Load (0.000000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+
+
+Processing AccountsController#show (for 0.0.0.0 at 2008-02-26 16:16:54) [GET]
+  Session ID: 
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"accounts"}
+  [4;35;1mAccount Load (0.003000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/show
+  [4;36;1mAccount Load (0.001000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+
+
+Processing AccountsController#update (for 0.0.0.0 at 2008-02-26 16:16:54) [PUT]
+  Session ID: 
+  Parameters: {"account"=>{}, "action"=>"update", "id"=>"1", "controller"=>"accounts"}
+  [4;35;1mAccount Load (0.002000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+ActiveScaffold: extending RESTful routes for reports
+ActiveScaffold: extending RESTful routes for accounts
+ActiveScaffold: extending RESTful routes for payees
+ActiveScaffold: extending RESTful routes for categories
+ActiveScaffold: extending RESTful routes for transactions
+ActiveScaffold: extending RESTful routes for bills
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT count(*) AS count_all FROM accounts [0m
+
+
+Processing AccountsController#create (for 0.0.0.0 at 2008-02-26 16:17:35) [POST]
+  Session ID: 
+  Parameters: {"account"=>{}, "action"=>"create", "controller"=>"accounts"}
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT count(*) AS count_all FROM accounts [0m
+  [4;36;1mAccount Load (0.000000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+
+
+Processing AccountsController#destroy (for 0.0.0.0 at 2008-02-26 16:17:35) [DELETE]
+  Session ID: 
+  Parameters: {"action"=>"destroy", "id"=>"1", "controller"=>"accounts"}
+  [4;35;1mAccount Load (0.000000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+  [4;36;1mAccount Destroy (0.002000)[0m   [0;1m DELETE FROM accounts
+ WHERE "id" = 1
+[0m
+Redirected to http://test.host/accounts/index/1
+Completed in 0.01000 (100 reqs/sec) | DB: 0.00200 (20%) | 302 Found [http://test.host/accounts/1]
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT count(*) AS count_all FROM accounts [0m
+  [4;36;1mAccount Load (0.001000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+
+
+Processing AccountsController#edit (for 0.0.0.0 at 2008-02-26 16:17:35) [GET]
+  Session ID: 
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"accounts"}
+  [4;35;1mAccount Load (0.001000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/update_form
+Rendered accounts/_messages (0.00400)
+Rendered accounts/_form_messages (0.01200)
+Rendered accounts/_form_attribute (0.00400)
+Rendered accounts/_form_attribute (0.00100)
+Rendered accounts/_form (0.02700)
+Rendered accounts/_update_form (0.06100)
+Completed in 0.09200 (10 reqs/sec) | Rendering: 0.08600 (93%) | DB: 0.00300 (3%) | 200 OK [http://test.host/accounts/1/edit]
+
+
+Processing AccountsController#index (for 0.0.0.0 at 2008-02-26 16:17:35) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;36;1mSQL (0.001000)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT count(DISTINCT accounts.id) AS count_all FROM accounts LEFT OUTER JOIN transactions ON transactions.account_id = accounts.id [0m
+  [4;36;1mAccount Load IDs For Limited Eager Loading (0.000000)[0m   [0;1mSELECT id FROM accounts ORDER BY accounts."id" ASC LIMIT 10 OFFSET 0[0m
+  [4;35;1mAccount Load Including Associations (0.001000)[0m   [0mSELECT accounts."id" AS t0_r0, accounts."name" AS t0_r1, accounts."number" AS t0_r2, accounts."created_at" AS t0_r3, accounts."updated_at" AS t0_r4, transactions."id" AS t1_r0, transactions."date" AS t1_r1, transactions."number" AS t1_r2, transactions."payee_category" AS t1_r3, transactions."amount" AS t1_r4, transactions."credit" AS t1_r5, transactions."account_id" AS t1_r6, transactions."created_at" AS t1_r7, transactions."updated_at" AS t1_r8 FROM accounts LEFT OUTER JOIN transactions ON transactions.account_id = accounts.id WHERE accounts.id IN (1, 2) ORDER BY accounts."id" ASC[0m
+Rendering template within layouts/application
+Rendering accounts/list
+Rendered accounts/_list_header (0.00700)
+Rendered accounts/_list_column_headings (0.01300)
+Rendered accounts/_messages (0.00100)
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 1) AND (transactions."credit" = 't') [0m
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 1) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.01000)
+Rendered accounts/_list_record (0.03000)
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 't') [0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00400)
+Rendered accounts/_list_record (0.01000)
+Rendered accounts/_list (0.07700)
+Completed in 0.25000 (4 reqs/sec) | Rendering: 0.10900 (43%) | DB: 0.00400 (1%) | 200 OK [http://test.host/accounts]
+
+
+Processing AccountsController#new (for 0.0.0.0 at 2008-02-26 16:17:35) [GET]
+  Session ID: 
+  Parameters: {"action"=>"new", "controller"=>"accounts"}
+Rendering template within layouts/application
+Rendering accounts/create_form
+Rendered accounts/_messages (0.00000)
+Rendered accounts/_form_messages (0.00200)
+Rendered accounts/_form_attribute (0.00100)
+Rendered accounts/_form_attribute (0.00000)
+Rendered accounts/_form (0.00400)
+Rendered accounts/_create_form (0.01600)
+Completed in 0.03800 (26 reqs/sec) | Rendering: 0.03600 (94%) | DB: 0.00000 (0%) | 200 OK [http://test.host/accounts/new]
+  [4;36;1mAccount Load (0.000000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+
+
+Processing AccountsController#show (for 0.0.0.0 at 2008-02-26 16:17:35) [GET]
+  Session ID: 
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"accounts"}
+  [4;35;1mAccount Load (0.000000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/show
+  [4;36;1mAccount Load (0.000000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+
+
+Processing AccountsController#update (for 0.0.0.0 at 2008-02-26 16:17:35) [PUT]
+  Session ID: 
+  Parameters: {"account"=>{}, "action"=>"update", "id"=>"1", "controller"=>"accounts"}
+  [4;35;1mAccount Load (0.001000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+ActiveScaffold: extending RESTful routes for reports
+ActiveScaffold: extending RESTful routes for accounts
+ActiveScaffold: extending RESTful routes for payees
+ActiveScaffold: extending RESTful routes for categories
+ActiveScaffold: extending RESTful routes for transactions
+ActiveScaffold: extending RESTful routes for bills
+ActiveScaffold: extending RESTful routes for reports
+ActiveScaffold: extending RESTful routes for accounts
+ActiveScaffold: extending RESTful routes for payees
+ActiveScaffold: extending RESTful routes for categories
+ActiveScaffold: extending RESTful routes for transactions
+ActiveScaffold: extending RESTful routes for bills
+ActiveScaffold: extending RESTful routes for reports
+ActiveScaffold: extending RESTful routes for accounts
+ActiveScaffold: extending RESTful routes for payees
+ActiveScaffold: extending RESTful routes for categories
+ActiveScaffold: extending RESTful routes for transactions
+ActiveScaffold: extending RESTful routes for bills
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT count(*) AS count_all FROM accounts [0m
+
+
+Processing AccountsController#create (for 0.0.0.0 at 2008-02-26 16:21:02) [POST]
+  Session ID: 
+  Parameters: {"account"=>{}, "action"=>"create", "controller"=>"accounts"}
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT count(*) AS count_all FROM accounts [0m
+  [4;36;1mAccount Load (0.001000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+
+
+Processing AccountsController#destroy (for 0.0.0.0 at 2008-02-26 16:21:02) [DELETE]
+  Session ID: 
+  Parameters: {"action"=>"destroy", "id"=>"1", "controller"=>"accounts"}
+  [4;35;1mAccount Load (0.000000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+  [4;36;1mAccount Destroy (0.007000)[0m   [0;1m DELETE FROM accounts
+ WHERE "id" = 1
+[0m
+Redirected to http://test.host/accounts/index/1
+Completed in 0.01500 (66 reqs/sec) | DB: 0.00900 (60%) | 302 Found [http://test.host/accounts/1]
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT count(*) AS count_all FROM accounts [0m
+  [4;36;1mAccount Load (0.011000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+
+
+Processing AccountsController#edit (for 0.0.0.0 at 2008-02-26 16:21:02) [GET]
+  Session ID: 
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"accounts"}
+  [4;35;1mAccount Load (0.001000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/update_form
+Rendered accounts/_messages (0.00300)
+Rendered accounts/_form_messages (0.01300)
+Rendered accounts/_form_attribute (0.00400)
+Rendered accounts/_form_attribute (0.00100)
+Rendered accounts/_form (0.02700)
+Rendered accounts/_update_form (0.06100)
+Completed in 0.09500 (10 reqs/sec) | Rendering: 0.09100 (95%) | DB: 0.01200 (12%) | 200 OK [http://test.host/accounts/1/edit]
+
+
+Processing AccountsController#index (for 0.0.0.0 at 2008-02-26 16:21:02) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;36;1mSQL (0.001000)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT count(DISTINCT accounts.id) AS count_all FROM accounts LEFT OUTER JOIN transactions ON transactions.account_id = accounts.id [0m
+  [4;36;1mAccount Load IDs For Limited Eager Loading (0.000000)[0m   [0;1mSELECT id FROM accounts ORDER BY accounts."id" ASC LIMIT 10 OFFSET 0[0m
+  [4;35;1mAccount Load Including Associations (0.001000)[0m   [0mSELECT accounts."id" AS t0_r0, accounts."name" AS t0_r1, accounts."number" AS t0_r2, accounts."created_at" AS t0_r3, accounts."updated_at" AS t0_r4, transactions."id" AS t1_r0, transactions."date" AS t1_r1, transactions."number" AS t1_r2, transactions."payee_category" AS t1_r3, transactions."amount" AS t1_r4, transactions."credit" AS t1_r5, transactions."account_id" AS t1_r6, transactions."created_at" AS t1_r7, transactions."updated_at" AS t1_r8 FROM accounts LEFT OUTER JOIN transactions ON transactions.account_id = accounts.id WHERE accounts.id IN (1, 2) ORDER BY accounts."id" ASC[0m
+Rendering template within layouts/application
+Rendering accounts/list
+Rendered accounts/_list_header (0.00800)
+Rendered accounts/_list_column_headings (0.01100)
+Rendered accounts/_messages (0.00100)
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 1) AND (transactions."credit" = 't') [0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 1) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.01000)
+Rendered accounts/_list_record (0.03000)
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 't') [0m
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00200)
+Rendered accounts/_list_record (0.01300)
+Rendered accounts/_list (0.07500)
+Completed in 0.24000 (4 reqs/sec) | Rendering: 0.10500 (43%) | DB: 0.00500 (2%) | 200 OK [http://test.host/accounts]
+
+
+Processing AccountsController#new (for 0.0.0.0 at 2008-02-26 16:21:02) [GET]
+  Session ID: 
+  Parameters: {"action"=>"new", "controller"=>"accounts"}
+Rendering template within layouts/application
+Rendering accounts/create_form
+Rendered accounts/_messages (0.00100)
+Rendered accounts/_form_messages (0.00200)
+Rendered accounts/_form_attribute (0.00100)
+Rendered accounts/_form_attribute (0.00100)
+Rendered accounts/_form (0.00500)
+Rendered accounts/_create_form (0.01800)
+Completed in 0.04200 (23 reqs/sec) | Rendering: 0.04000 (95%) | DB: 0.00000 (0%) | 200 OK [http://test.host/accounts/new]
+  [4;36;1mAccount Load (0.001000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+
+
+Processing AccountsController#show (for 0.0.0.0 at 2008-02-26 16:21:02) [GET]
+  Session ID: 
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"accounts"}
+  [4;35;1mAccount Load (0.001000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/show
+  [4;36;1mAccount Load (0.001000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+
+
+Processing AccountsController#update (for 0.0.0.0 at 2008-02-26 16:21:03) [PUT]
+  Session ID: 
+  Parameters: {"account"=>{}, "action"=>"update", "id"=>"1", "controller"=>"accounts"}
+  [4;35;1mAccount Load (0.001000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+ActiveScaffold: extending RESTful routes for reports
+ActiveScaffold: extending RESTful routes for accounts
+ActiveScaffold: extending RESTful routes for payees
+ActiveScaffold: extending RESTful routes for categories
+ActiveScaffold: extending RESTful routes for transactions
+ActiveScaffold: extending RESTful routes for bills
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT count(*) AS count_all FROM accounts [0m
+
+
+Processing AccountsController#create (for 0.0.0.0 at 2008-02-26 16:21:16) [POST]
+  Session ID: 
+  Parameters: {"account"=>{}, "action"=>"create", "controller"=>"accounts"}
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT count(*) AS count_all FROM accounts [0m
+  [4;36;1mAccount Load (0.001000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+
+
+Processing AccountsController#destroy (for 0.0.0.0 at 2008-02-26 16:21:16) [DELETE]
+  Session ID: 
+  Parameters: {"action"=>"destroy", "id"=>"1", "controller"=>"accounts"}
+  [4;35;1mAccount Load (0.001000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+  [4;36;1mAccount Destroy (0.003000)[0m   [0;1m DELETE FROM accounts
+ WHERE "id" = 1
+[0m
+Redirected to http://test.host/accounts/index/1
+Completed in 0.01200 (83 reqs/sec) | DB: 0.00600 (49%) | 302 Found [http://test.host/accounts/1]
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT count(*) AS count_all FROM accounts [0m
+  [4;36;1mAccount Load (0.001000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+
+
+Processing AccountsController#edit (for 0.0.0.0 at 2008-02-26 16:21:16) [GET]
+  Session ID: 
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"accounts"}
+  [4;35;1mAccount Load (0.001000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/update_form
+Rendered accounts/_messages (0.00400)
+Rendered accounts/_form_messages (0.01100)
+Rendered accounts/_form_attribute (0.00400)
+Rendered accounts/_form_attribute (0.00100)
+Rendered accounts/_form (0.02800)
+Rendered accounts/_update_form (0.05900)
+Completed in 0.09300 (10 reqs/sec) | Rendering: 0.08800 (94%) | DB: 0.00300 (3%) | 200 OK [http://test.host/accounts/1/edit]
+
+
+Processing AccountsController#index (for 0.0.0.0 at 2008-02-26 16:21:16) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;36;1mSQL (0.000000)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT count(DISTINCT accounts.id) AS count_all FROM accounts LEFT OUTER JOIN transactions ON transactions.account_id = accounts.id [0m
+  [4;36;1mAccount Load IDs For Limited Eager Loading (0.001000)[0m   [0;1mSELECT id FROM accounts ORDER BY accounts."id" ASC LIMIT 10 OFFSET 0[0m
+  [4;35;1mAccount Load Including Associations (0.002000)[0m   [0mSELECT accounts."id" AS t0_r0, accounts."name" AS t0_r1, accounts."number" AS t0_r2, accounts."created_at" AS t0_r3, accounts."updated_at" AS t0_r4, transactions."id" AS t1_r0, transactions."date" AS t1_r1, transactions."number" AS t1_r2, transactions."payee_category" AS t1_r3, transactions."amount" AS t1_r4, transactions."credit" AS t1_r5, transactions."account_id" AS t1_r6, transactions."created_at" AS t1_r7, transactions."updated_at" AS t1_r8 FROM accounts LEFT OUTER JOIN transactions ON transactions.account_id = accounts.id WHERE accounts.id IN (1, 2) ORDER BY accounts."id" ASC[0m
+Rendering template within layouts/application
+Rendering accounts/list
+Rendered accounts/_list_header (0.00800)
+Rendered accounts/_list_column_headings (0.01000)
+Rendered accounts/_messages (0.00000)
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 1) AND (transactions."credit" = 't') [0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 1) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00900)
+Rendered accounts/_list_record (0.02900)
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 't') [0m
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00300)
+Rendered accounts/_list_record (0.02000)
+Rendered accounts/_list (0.07900)
+Completed in 0.23000 (4 reqs/sec) | Rendering: 0.10800 (46%) | DB: 0.00700 (3%) | 200 OK [http://test.host/accounts]
+
+
+Processing AccountsController#new (for 0.0.0.0 at 2008-02-26 16:21:16) [GET]
+  Session ID: 
+  Parameters: {"action"=>"new", "controller"=>"accounts"}
+Rendering template within layouts/application
+Rendering accounts/create_form
+Rendered accounts/_messages (0.00000)
+Rendered accounts/_form_messages (0.00200)
+Rendered accounts/_form_attribute (0.00200)
+Rendered accounts/_form_attribute (0.00000)
+Rendered accounts/_form (0.00400)
+Rendered accounts/_create_form (0.01600)
+Completed in 0.03500 (28 reqs/sec) | Rendering: 0.03200 (91%) | DB: 0.00000 (0%) | 200 OK [http://test.host/accounts/new]
+  [4;36;1mAccount Load (0.001000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+
+
+Processing AccountsController#show (for 0.0.0.0 at 2008-02-26 16:21:16) [GET]
+  Session ID: 
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"accounts"}
+  [4;35;1mAccount Load (0.001000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/show
+  [4;36;1mAccount Load (0.001000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+
+
+Processing AccountsController#update (for 0.0.0.0 at 2008-02-26 16:21:16) [PUT]
+  Session ID: 
+  Parameters: {"account"=>{}, "action"=>"update", "id"=>"1", "controller"=>"accounts"}
+  [4;35;1mAccount Load (0.000000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+ActiveScaffold: extending RESTful routes for reports
+ActiveScaffold: extending RESTful routes for accounts
+ActiveScaffold: extending RESTful routes for payees
+ActiveScaffold: extending RESTful routes for categories
+ActiveScaffold: extending RESTful routes for transactions
+ActiveScaffold: extending RESTful routes for bills
+ActiveScaffold: extending RESTful routes for reports
+ActiveScaffold: extending RESTful routes for accounts
+ActiveScaffold: extending RESTful routes for payees
+ActiveScaffold: extending RESTful routes for categories
+ActiveScaffold: extending RESTful routes for transactions
+ActiveScaffold: extending RESTful routes for bills
+ActiveScaffold: extending RESTful routes for reports
+ActiveScaffold: extending RESTful routes for accounts
+ActiveScaffold: extending RESTful routes for payees
+ActiveScaffold: extending RESTful routes for categories
+ActiveScaffold: extending RESTful routes for transactions
+ActiveScaffold: extending RESTful routes for bills
+WARNING: Can't mass-assign these protected attributes: id
+WARNING: Can't mass-assign these protected attributes: id
+WARNING: Can't mass-assign these protected attributes: id
+  [4;36;1mAccount Load (0.002000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+  [4;35;1mTransaction Load (0.000000)[0m   [0mSELECT * FROM transactions WHERE (transactions.account_id = 1) [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 1) AND (transactions."credit" = 't') [0m
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 1) AND (transactions."credit" = 'f') [0m
+ActiveScaffold: extending RESTful routes for reports
+ActiveScaffold: extending RESTful routes for accounts
+ActiveScaffold: extending RESTful routes for payees
+ActiveScaffold: extending RESTful routes for categories
+ActiveScaffold: extending RESTful routes for transactions
+ActiveScaffold: extending RESTful routes for bills
+WARNING: Can't mass-assign these protected attributes: id
+WARNING: Can't mass-assign these protected attributes: id
+WARNING: Can't mass-assign these protected attributes: id
+  [4;36;1mAccount Load (0.000000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+  [4;35;1mTransaction Load (0.001000)[0m   [0mSELECT * FROM transactions WHERE (transactions.account_id = 1) [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 1) AND (transactions."credit" = 't') [0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 1) AND (transactions."credit" = 'f') [0m
