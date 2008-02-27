@@ -5805,3 +5805,52 @@ ActiveScaffold: extending RESTful routes for payees
 ActiveScaffold: extending RESTful routes for categories
 ActiveScaffold: extending RESTful routes for transactions
 ActiveScaffold: extending RESTful routes for bills
+ActiveScaffold: extending RESTful routes for reports
+ActiveScaffold: extending RESTful routes for accounts
+ActiveScaffold: extending RESTful routes for payees
+ActiveScaffold: extending RESTful routes for categories
+ActiveScaffold: extending RESTful routes for transactions
+ActiveScaffold: extending RESTful routes for bills
+WARNING: Can't mass-assign these protected attributes: id
+WARNING: Can't mass-assign these protected attributes: id
+WARNING: Can't mass-assign these protected attributes: id
+  [4;36;1mAccount Load (0.001000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+  [4;35;1mTransaction Load (0.000000)[0m   [0mSELECT * FROM transactions WHERE (transactions.account_id = 1) [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 1) AND (transactions."credit" = 't') [0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 1) AND (transactions."credit" = 'f') [0m
+ActiveScaffold: extending RESTful routes for reports
+ActiveScaffold: extending RESTful routes for accounts
+ActiveScaffold: extending RESTful routes for payees
+ActiveScaffold: extending RESTful routes for categories
+ActiveScaffold: extending RESTful routes for transactions
+ActiveScaffold: extending RESTful routes for bills
+ActiveScaffold: extending RESTful routes for reports
+ActiveScaffold: extending RESTful routes for accounts
+ActiveScaffold: extending RESTful routes for payees
+ActiveScaffold: extending RESTful routes for categories
+ActiveScaffold: extending RESTful routes for transactions
+ActiveScaffold: extending RESTful routes for bills
+ActiveScaffold: extending RESTful routes for reports
+ActiveScaffold: extending RESTful routes for accounts
+ActiveScaffold: extending RESTful routes for payees
+ActiveScaffold: extending RESTful routes for categories
+ActiveScaffold: extending RESTful routes for transactions
+ActiveScaffold: extending RESTful routes for bills
+ActiveScaffold: extending RESTful routes for reports
+ActiveScaffold: extending RESTful routes for accounts
+ActiveScaffold: extending RESTful routes for payees
+ActiveScaffold: extending RESTful routes for categories
+ActiveScaffold: extending RESTful routes for transactions
+ActiveScaffold: extending RESTful routes for bills
+ActiveScaffold: extending RESTful routes for reports
+ActiveScaffold: extending RESTful routes for accounts
+ActiveScaffold: extending RESTful routes for payees
+ActiveScaffold: extending RESTful routes for categories
+ActiveScaffold: extending RESTful routes for transactions
+ActiveScaffold: extending RESTful routes for bills
+ActiveScaffold: extending RESTful routes for reports
+ActiveScaffold: extending RESTful routes for accounts
+ActiveScaffold: extending RESTful routes for payees
+ActiveScaffold: extending RESTful routes for categories
+ActiveScaffold: extending RESTful routes for transactions
+ActiveScaffold: extending RESTful routes for bills
