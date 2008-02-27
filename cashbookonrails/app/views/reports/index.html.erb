@@ -27,11 +27,11 @@
 			<h3>Reports</h3>
 			<div class="content">
 				<ul class="linklist">
-					<li class="first"><a href="#">Spending by category</a></li>
-					<li><a href="#">Spending by payee</a></li>
-					<li><a href="#">Credit card debt</a></li>
-					<li><a href="#">Top five expense categories</a></li>
-					<li><a href="#">Pending transactions</a></li>
+					<li class="first"><%= link_to "Spending by category", { :action => "spending_by_category", :id => "1" } %></li>
+					<li><%= link_to "Spending by payee", { :action => "spending_by_payee", :id => "1" } %></li>
+					<li><%= link_to "Credit card debt", { :action => "credit_card_debt", :id => "1" } %></li>
+					<li><%= link_to "Top five expense categories", { :action => "top_five_expense_categories", :id => "1" } %></li>
+					<li><%= link_to "Pending transactions", { :action => "pending_transactions", :id => "1" } %></li>
 				</ul>
 			</div>
 

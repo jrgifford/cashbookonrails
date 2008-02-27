@@ -4,8 +4,8 @@ class ReportsController < ApplicationController
   def index    
   end
 
-  def spending_by_category 
-    
+  def spending_by_category
+    @categories = Category.find(:all)    
   end
 
   def spending_by_payee 
