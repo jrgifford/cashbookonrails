@@ -5799,3 +5799,9 @@ Processing BillsController#update (for 0.0.0.0 at 2008-02-26 18:00:26) [PUT]
   Session ID: 
   Parameters: {"action"=>"update", "id"=>"1", "controller"=>"bills", "bill"=>{}}
   [4;36;1mBill Load (0.001000)[0m   [0;1mSELECT * FROM bills WHERE (bills."id" = 1) [0m
+ActiveScaffold: extending RESTful routes for reports
+ActiveScaffold: extending RESTful routes for accounts
+ActiveScaffold: extending RESTful routes for payees
+ActiveScaffold: extending RESTful routes for categories
+ActiveScaffold: extending RESTful routes for transactions
+ActiveScaffold: extending RESTful routes for bills
