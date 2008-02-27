@@ -5695,3 +5695,107 @@ WARNING: Can't mass-assign these protected attributes: id
   [4;35;1mTransaction Load (0.001000)[0m   [0mSELECT * FROM transactions WHERE (transactions.account_id = 1) [0m
   [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 1) AND (transactions."credit" = 't') [0m
   [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 1) AND (transactions."credit" = 'f') [0m
+ActiveScaffold: extending RESTful routes for reports
+ActiveScaffold: extending RESTful routes for accounts
+ActiveScaffold: extending RESTful routes for payees
+ActiveScaffold: extending RESTful routes for categories
+ActiveScaffold: extending RESTful routes for transactions
+ActiveScaffold: extending RESTful routes for bills
+ActiveScaffold: extending RESTful routes for reports
+ActiveScaffold: extending RESTful routes for accounts
+ActiveScaffold: extending RESTful routes for payees
+ActiveScaffold: extending RESTful routes for categories
+ActiveScaffold: extending RESTful routes for transactions
+ActiveScaffold: extending RESTful routes for bills
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT count(*) AS count_all FROM bills [0m
+
+
+Processing BillsController#create (for 0.0.0.0 at 2008-02-26 18:00:25) [POST]
+  Session ID: 
+  Parameters: {"action"=>"create", "controller"=>"bills", "bill"=>{}}
+  [4;35;1mSQL (0.012000)[0m   [0mSELECT count(*) AS count_all FROM bills [0m
+  [4;36;1mBill Load (0.001000)[0m   [0;1mSELECT * FROM bills WHERE (bills."id" = 1) [0m
+
+
+Processing BillsController#destroy (for 0.0.0.0 at 2008-02-26 18:00:25) [DELETE]
+  Session ID: 
+  Parameters: {"action"=>"destroy", "id"=>"1", "controller"=>"bills"}
+  [4;35;1mBill Load (0.001000)[0m   [0mSELECT * FROM bills WHERE (bills."id" = 1) [0m
+  [4;36;1mBill Destroy (0.002000)[0m   [0;1m DELETE FROM bills
+ WHERE "id" = 1
+[0m
+  [4;35;1mPayee Load (0.000000)[0m   [0mSELECT * FROM payees WHERE (payees."id" = 953125641) [0m
+  [4;36;1mBill Load (0.001000)[0m   [0;1mSELECT * FROM bills WHERE (bills."id" = 1) [0m
+
+
+Processing BillsController#edit (for 0.0.0.0 at 2008-02-26 18:00:25) [GET]
+  Session ID: 
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"bills"}
+  [4;35;1mBill Load (0.000000)[0m   [0mSELECT * FROM bills WHERE (bills."id" = 1) [0m
+Rendering template within layouts/application
+Rendering bills/update_form
+  [4;36;1mPayee Load (0.000000)[0m   [0;1mSELECT * FROM payees WHERE (payees."id" = 953125641) [0m
+
+
+Processing BillsController#index (for 0.0.0.0 at 2008-02-26 18:00:25) [GET]
+  Session ID: 
+  Parameters: {"action"=>"index", "controller"=>"bills"}
+  [4;35;1mSQL (0.001000)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT count(DISTINCT bills.id) AS count_all FROM bills LEFT OUTER JOIN payees ON payees.id = bills.payee_id LEFT OUTER JOIN accounts ON accounts.id = bills.account_id LEFT OUTER JOIN categories ON categories.id = bills.category_id [0m
+  [4;35;1mBill Load Including Associations (0.002000)[0m   [0mSELECT bills."id" AS t0_r0, bills."payee_id" AS t0_r1, bills."account_id" AS t0_r2, bills."number" AS t0_r3, bills."next_payment_date" AS t0_r4, bills."payment_method" AS t0_r5, bills."frequency" AS t0_r6, bills."amount" AS t0_r7, bills."category_id" AS t0_r8, bills."created_at" AS t0_r9, bills."updated_at" AS t0_r10, payees."id" AS t1_r0, payees."name" AS t1_r1, payees."phone_number" AS t1_r2, payees."created_at" AS t1_r3, payees."updated_at" AS t1_r4, accounts."id" AS t2_r0, accounts."name" AS t2_r1, accounts."number" AS t2_r2, accounts."created_at" AS t2_r3, accounts."updated_at" AS t2_r4, categories."id" AS t3_r0, categories."name" AS t3_r1, categories."credit" AS t3_r2, categories."created_at" AS t3_r3, categories."updated_at" AS t3_r4 FROM bills LEFT OUTER JOIN payees ON payees.id = bills.payee_id LEFT OUTER JOIN accounts ON accounts.id = bills.account_id LEFT OUTER JOIN categories ON categories.id = bills.category_id ORDER BY bills."id" ASC LIMIT 10 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering bills/list
+Rendered bills/_list_header (0.00800)
+Rendered bills/_list_column_headings (0.01500)
+Rendered bills/_messages (0.00400)
+  [4;36;1mPayee Load (0.000000)[0m   [0;1mSELECT * FROM payees WHERE (payees."id" = 953125641) [0m
+  [4;35;1mAccount Load (0.000000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 953125641) [0m
+  [4;36;1mCategory Load (0.000000)[0m   [0;1mSELECT * FROM categories WHERE (categories."id" = 953125641) [0m
+Rendered bills/_list_actions (0.05900)
+Rendered bills/_list_record (0.14700)
+  [4;35;1mPayee Load (0.000000)[0m   [0mSELECT * FROM payees WHERE (payees."id" = 996332877) [0m
+  [4;36;1mAccount Load (0.001000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 996332877) [0m
+  [4;35;1mCategory Load (0.001000)[0m   [0mSELECT * FROM categories WHERE (categories."id" = 996332877) [0m
+Rendered bills/_list_actions (0.00200)
+Rendered bills/_list_record (0.01500)
+Rendered bills/_list (0.20600)
+Completed in 0.26400 (3 reqs/sec) | Rendering: 0.24600 (93%) | DB: 0.00600 (2%) | 200 OK [http://test.host/bills]
+
+
+Processing BillsController#new (for 0.0.0.0 at 2008-02-26 18:00:25) [GET]
+  Session ID: 
+  Parameters: {"action"=>"new", "controller"=>"bills"}
+Rendering template within layouts/application
+Rendering bills/create_form
+Rendered bills/_messages (0.00000)
+Rendered bills/_form_messages (0.00500)
+  [4;36;1mPayee Load (0.000000)[0m   [0;1mSELECT * FROM payees [0m
+Rendered bills/_form_attribute (0.00500)
+  [4;35;1mAccount Load (0.001000)[0m   [0mSELECT * FROM accounts [0m
+Rendered bills/_form_attribute (0.00400)
+Rendered bills/_form_attribute (0.00100)
+Rendered bills/_form_attribute (0.00100)
+Rendered bills/_form_attribute (0.00000)
+Rendered bills/_form_attribute (0.00100)
+Rendered bills/_form_attribute (0.00100)
+  [4;36;1mCategory Load (0.000000)[0m   [0;1mSELECT * FROM categories [0m
+Rendered bills/_form_attribute (0.00200)
+Rendered bills/_form (0.07400)
+Rendered bills/_create_form (0.09900)
+Completed in 0.11800 (8 reqs/sec) | Rendering: 0.11400 (96%) | DB: 0.00100 (0%) | 200 OK [http://test.host/bills/new]
+  [4;35;1mBill Load (0.001000)[0m   [0mSELECT * FROM bills WHERE (bills."id" = 1) [0m
+
+
+Processing BillsController#show (for 0.0.0.0 at 2008-02-26 18:00:25) [GET]
+  Session ID: 
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"bills"}
+  [4;36;1mBill Load (0.001000)[0m   [0;1mSELECT * FROM bills WHERE (bills."id" = 1) [0m
+Rendering template within layouts/application
+Rendering bills/show
+  [4;35;1mBill Load (0.002000)[0m   [0mSELECT * FROM bills WHERE (bills."id" = 1) [0m
+
+
+Processing BillsController#update (for 0.0.0.0 at 2008-02-26 18:00:26) [PUT]
+  Session ID: 
+  Parameters: {"action"=>"update", "id"=>"1", "controller"=>"bills", "bill"=>{}}
+  [4;36;1mBill Load (0.001000)[0m   [0;1mSELECT * FROM bills WHERE (bills."id" = 1) [0m
