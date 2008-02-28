@@ -9,7 +9,7 @@ class ReportsController < ApplicationController
   end
 
   def spending_by_payee 
-    
+    @payees = Payee.find(:all)        
   end
   
   def credit_card_debt 

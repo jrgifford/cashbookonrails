@@ -97,6 +97,5 @@ class BillsController < ApplicationController
   def pay
     @bill = Bill.find(params[:id])
     @bill.pay
-    redirect_to(home_url)
   end
 end

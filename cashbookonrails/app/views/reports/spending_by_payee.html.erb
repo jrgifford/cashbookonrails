@@ -6,8 +6,36 @@
 				<div class="header">
 					<h3>Preview - Spending by payee</h3>
 				</div>
-				<div class="content">
-					<p>Be welcome. <strong>cashbook</strong><sup>1.0</sup> is a personal financial application, helping anyone to manage (in a simple way) his money, from whom the must receive money and for whom he own money :)</p>
+				<div class="content">	
+					<% for payee in @payees %>
+						<p><h3><%= payee.name %></h3></p>
+						<table>
+							<tr>
+								<th>Number</th>
+								<th>Account</th>
+								<th>Payee</th>
+								<th>Payment method</th>								
+								<th>Amount</th>
+							</tr>
+						<% for bill in payee.bills %>
+							<tr>
+								<td><%= bill.number %></td>
+								<td><%= bill.account %></td>
+								<td><%= bill.payee %></td>
+								<td><%= bill.payment_method %></td>
+								<td><%= bill.amount %></td>
+							</tr>
+						<% end %>
+							<tr>
+								<td>Total</td>
+								<td></td>
+								<td></td>
+								<td></td>								
+								<td>$999.00</td>
+							</tr>
+						</table>
+					<% end %>				
+					</br>
 				</div>			
 				<div class="footer">
 					<ul>
