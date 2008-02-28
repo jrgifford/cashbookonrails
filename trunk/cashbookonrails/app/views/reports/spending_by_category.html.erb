@@ -8,7 +8,32 @@
 				</div>
 				<div class="content">	
 					<% for category in @categories %>
-						<p><strong><%= category.name %></strong></p>																
+						<p><h3><%= category.name %></h3></p>
+						<table>
+							<tr>
+								<th>Number</th>
+								<th>Account</th>
+								<th>Payee</th>
+								<th>Payment method</th>								
+								<th>Amount</th>
+							</tr>
+						<% for bill in category.bills %>
+							<tr>
+								<td><%= bill.number %></td>
+								<td><%= bill.account %></td>
+								<td><%= bill.payee %></td>
+								<td><%= bill.payment_method %></td>
+								<td><%= bill.amount %></td>
+							</tr>
+						<% end %>
+							<tr>
+								<td>Total</td>
+								<td></td>
+								<td></td>
+								<td></td>								
+								<td>$999.00</td>
+							</tr>
+						</table>
 					<% end %>				
 					</br>
 				</div>			
