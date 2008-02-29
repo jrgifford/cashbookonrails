@@ -9,7 +9,7 @@
 				<div class="content">	
 					<% for payee in @payees %>
 						<p><h3><%= payee.name %></h3></p>
-						<table>
+						<table cellspacing="10">
 							<tr>
 								<th>Number</th>
 								<th>Account</th>
@@ -23,14 +23,14 @@
 								<td><%= bill.account %></td>
 								<td><%= bill.payee %></td>
 								<td><%= bill.payment_method %></td>
-								<td><%= bill.amount %></td>
+								<td><%= number_to_currency(bill.amount) %></td>
 							</tr>
 						<% end %>
 							<tr>
-								<td>Total</td>
 								<td></td>
 								<td></td>
-								<td></td>								
+								<td></td>
+								<td align="right">Total - </td>								
 								<td>$999.00</td>
 							</tr>
 						</table>
