@@ -8,4 +8,8 @@ module BillsHelper
   def frequency_form_column(record, input_name)
     select :record, :frequency, Bill::FREQUENCY
   end  
+  
+  def amount_column(record)
+    number_to_currency(record.amount)
+  end
 end

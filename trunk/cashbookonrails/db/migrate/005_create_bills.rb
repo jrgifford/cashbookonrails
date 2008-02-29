@@ -9,6 +9,7 @@ class CreateBills < ActiveRecord::Migration
       t.string :frequency
       t.float :amount
       t.references :category
+      t.boolean :paid
 
       t.timestamps
     end
