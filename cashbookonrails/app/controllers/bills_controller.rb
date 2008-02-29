@@ -7,7 +7,7 @@ class BillsController < ApplicationController
     config.columns[:payee].form_ui = :select
     config.columns[:account].form_ui = :select
     config.columns[:category].form_ui = :select
-    config.action_links.add 'pay', :label => 'Pay', :type => :record, :confirm => "Confirm payment?"
+    config.action_links.add 'pay', :label => 'Pay', :type => :record, :position => false, :confirm => "Confirm payment?"
   end
   
 #  # GET /bills
