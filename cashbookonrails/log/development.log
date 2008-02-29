@@ -25767,3 +25767,653 @@ Rendered bills/_list_actions (0.01000)
 Rendered bills/_list_record (0.03000)
 Rendered bills/_list (0.15800)
 Completed in 0.47800 (2 reqs/sec) | Rendering: 0.19000 (39%) | DB: 0.00500 (1%) | 200 OK [http://localhost/bills]
+ActiveScaffold: extending RESTful routes for reports
+ActiveScaffold: extending RESTful routes for accounts
+ActiveScaffold: extending RESTful routes for payees
+ActiveScaffold: extending RESTful routes for categories
+ActiveScaffold: extending RESTful routes for transactions
+ActiveScaffold: extending RESTful routes for bills
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-02-29 08:51:19) [GET]
+  Session ID: d23b99735793a96898209dc632a41dc6
+  Parameters: {"action"=>"index", "controller"=>"home"}
+  [4;36;1mAccount Load (0.002000)[0m   [0;1mSELECT * FROM accounts [0m
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 'f') [0m
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 'f') [0m
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 'f') [0m
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 'f') [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM accounts [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 't') [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 'f') [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 't') [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 'f') [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 't') [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 'f') [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 't') [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 'f') [0m
+Completed in 0.12100 (8 reqs/sec) | Rendering: 0.09300 (76%) | DB: 0.00900 (7%) | 200 OK [http://localhost/]
+
+
+Processing ReportsController#index (for 127.0.0.1 at 2008-02-29 08:51:40) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--518fe40e7661a281a84d4f3a4ee25858d921a570
+  Parameters: {"action"=>"index", "controller"=>"reports"}
+Rendering template within layouts/application
+Rendering reports/index
+Completed in 0.04400 (22 reqs/sec) | Rendering: 0.03700 (84%) | DB: 0.00000 (0%) | 200 OK [http://localhost/reports]
+
+
+Processing ReportsController#spending_by_category (for 127.0.0.1 at 2008-02-29 08:51:41) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--518fe40e7661a281a84d4f3a4ee25858d921a570
+  Parameters: {"action"=>"spending_by_category", "id"=>"1", "controller"=>"reports"}
+  [4;36;1mCategory Load (0.002000)[0m   [0;1mSELECT * FROM categories [0m
+Rendering template within layouts/application
+Rendering reports/spending_by_category
+  [4;35;1mBill Load (0.000000)[0m   [0mSELECT * FROM bills WHERE (bills.category_id = 1) [0m
+  [4;36;1mAccount Load (0.001000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;35;1mPayee Load (0.001000)[0m   [0mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+  [4;36;1mBill Load (0.002000)[0m   [0;1mSELECT * FROM bills WHERE (bills.category_id = 2) [0m
+  [4;35;1mAccount Load (0.001000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+Completed in 0.20200 (4 reqs/sec) | Rendering: 0.09200 (45%) | DB: 0.00700 (3%) | 200 OK [http://localhost/reports/spending_by_category/1]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2008-02-29 08:51:46) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--518fe40e7661a281a84d4f3a4ee25858d921a570
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;35;1mSQL (0.001000)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT count(DISTINCT accounts.id) AS count_all FROM accounts LEFT OUTER JOIN transactions ON transactions.account_id = accounts.id [0m
+  [4;35;1mAccount Load IDs For Limited Eager Loading (0.001000)[0m   [0mSELECT id FROM accounts ORDER BY accounts."id" ASC LIMIT 10 OFFSET 0[0m
+  [4;36;1mAccount Load Including Associations (0.004000)[0m   [0;1mSELECT accounts."id" AS t0_r0, accounts."name" AS t0_r1, accounts."number" AS t0_r2, accounts."created_at" AS t0_r3, accounts."updated_at" AS t0_r4, transactions."id" AS t1_r0, transactions."date" AS t1_r1, transactions."number" AS t1_r2, transactions."payee_category" AS t1_r3, transactions."amount" AS t1_r4, transactions."credit" AS t1_r5, transactions."account_id" AS t1_r6, transactions."created_at" AS t1_r7, transactions."updated_at" AS t1_r8 FROM accounts LEFT OUTER JOIN transactions ON transactions.account_id = accounts.id WHERE accounts.id IN (2, 3, 4, 5) ORDER BY accounts."id" ASC[0m
+Rendering template within layouts/application
+Rendering accounts/list
+Rendered accounts/_list_header (0.01400)
+Rendered accounts/_list_column_headings (0.02400)
+Rendered accounts/_messages (0.00900)
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.01500)
+Rendered accounts/_list_record (0.05200)
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00700)
+Rendered accounts/_list_record (0.02400)
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00600)
+Rendered accounts/_list_record (0.02200)
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00600)
+Rendered accounts/_list_record (0.02300)
+Rendered accounts/_list (0.20800)
+Completed in 0.29800 (3 reqs/sec) | Rendering: 0.25900 (86%) | DB: 0.01100 (3%) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2008-02-29 08:57:21) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACIKZmxhc2hJQzonQWN0aW9uQ29u%0AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--9a2517788d16629d26c1928fb002c075b1c15a97
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;35;1mSQL (0.001000)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT count(DISTINCT accounts.id) AS count_all FROM accounts LEFT OUTER JOIN transactions ON transactions.account_id = accounts.id [0m
+  [4;35;1mAccount Load IDs For Limited Eager Loading (0.001000)[0m   [0mSELECT id FROM accounts ORDER BY accounts."id" ASC LIMIT 10 OFFSET 0[0m
+  [4;36;1mAccount Load Including Associations (0.003000)[0m   [0;1mSELECT accounts."id" AS t0_r0, accounts."name" AS t0_r1, accounts."number" AS t0_r2, accounts."created_at" AS t0_r3, accounts."updated_at" AS t0_r4, transactions."id" AS t1_r0, transactions."date" AS t1_r1, transactions."number" AS t1_r2, transactions."payee_category" AS t1_r3, transactions."amount" AS t1_r4, transactions."credit" AS t1_r5, transactions."account_id" AS t1_r6, transactions."created_at" AS t1_r7, transactions."updated_at" AS t1_r8 FROM accounts LEFT OUTER JOIN transactions ON transactions.account_id = accounts.id WHERE accounts.id IN (2, 3, 4, 5) ORDER BY accounts."id" ASC[0m
+Rendering template within layouts/application
+Rendering accounts/list
+Rendered accounts/_list_header (0.00600)
+Rendered accounts/_list_column_headings (0.00800)
+Rendered accounts/_messages (0.00400)
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00700)
+Rendered accounts/_list_record (0.02500)
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00700)
+Rendered accounts/_list_record (0.02300)
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00600)
+Rendered accounts/_list_record (0.02100)
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00700)
+Rendered accounts/_list_record (0.02300)
+Rendered accounts/_list (0.13900)
+Completed in 0.29700 (3 reqs/sec) | Rendering: 0.25900 (87%) | DB: 0.01300 (4%) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2008-02-29 08:57:24) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACIKZmxhc2hJQzonQWN0aW9uQ29u%0AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--9a2517788d16629d26c1928fb002c075b1c15a97
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;35;1mSQL (0.000000)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT count(DISTINCT accounts.id) AS count_all FROM accounts LEFT OUTER JOIN transactions ON transactions.account_id = accounts.id [0m
+  [4;35;1mAccount Load IDs For Limited Eager Loading (0.001000)[0m   [0mSELECT id FROM accounts ORDER BY accounts."id" ASC LIMIT 10 OFFSET 0[0m
+  [4;36;1mAccount Load Including Associations (0.004000)[0m   [0;1mSELECT accounts."id" AS t0_r0, accounts."name" AS t0_r1, accounts."number" AS t0_r2, accounts."created_at" AS t0_r3, accounts."updated_at" AS t0_r4, transactions."id" AS t1_r0, transactions."date" AS t1_r1, transactions."number" AS t1_r2, transactions."payee_category" AS t1_r3, transactions."amount" AS t1_r4, transactions."credit" AS t1_r5, transactions."account_id" AS t1_r6, transactions."created_at" AS t1_r7, transactions."updated_at" AS t1_r8 FROM accounts LEFT OUTER JOIN transactions ON transactions.account_id = accounts.id WHERE accounts.id IN (2, 3, 4, 5) ORDER BY accounts."id" ASC[0m
+Rendering template within layouts/application
+Rendering accounts/list
+Rendered accounts/_list_header (0.00600)
+Rendered accounts/_list_column_headings (0.00800)
+Rendered accounts/_messages (0.00400)
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00600)
+Rendered accounts/_list_record (0.02800)
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00900)
+Rendered accounts/_list_record (0.02600)
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00700)
+Rendered accounts/_list_record (0.02400)
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00800)
+Rendered accounts/_list_record (0.02600)
+Rendered accounts/_list (0.15300)
+Completed in 0.21900 (4 reqs/sec) | Rendering: 0.17900 (81%) | DB: 0.01000 (4%) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2008-02-29 08:57:39) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACIKZmxhc2hJQzonQWN0aW9uQ29u%0AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--9a2517788d16629d26c1928fb002c075b1c15a97
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;35;1mSQL (0.001000)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT count(DISTINCT accounts.id) AS count_all FROM accounts LEFT OUTER JOIN transactions ON transactions.account_id = accounts.id [0m
+  [4;35;1mAccount Load IDs For Limited Eager Loading (0.001000)[0m   [0mSELECT id FROM accounts ORDER BY accounts."id" ASC LIMIT 10 OFFSET 0[0m
+  [4;36;1mAccount Load Including Associations (0.003000)[0m   [0;1mSELECT accounts."id" AS t0_r0, accounts."name" AS t0_r1, accounts."number" AS t0_r2, accounts."created_at" AS t0_r3, accounts."updated_at" AS t0_r4, transactions."id" AS t1_r0, transactions."date" AS t1_r1, transactions."number" AS t1_r2, transactions."payee_category" AS t1_r3, transactions."amount" AS t1_r4, transactions."credit" AS t1_r5, transactions."account_id" AS t1_r6, transactions."created_at" AS t1_r7, transactions."updated_at" AS t1_r8 FROM accounts LEFT OUTER JOIN transactions ON transactions.account_id = accounts.id WHERE accounts.id IN (2, 3, 4, 5) ORDER BY accounts."id" ASC[0m
+Rendering template within layouts/application
+Rendering accounts/list
+Rendered accounts/_list_header (0.00600)
+Rendered accounts/_list_column_headings (0.00800)
+Rendered accounts/_messages (0.00400)
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00500)
+Rendered accounts/_list_record (0.02600)
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00700)
+Rendered accounts/_list_record (0.02400)
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00700)
+Rendered accounts/_list_record (0.02300)
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00700)
+Rendered accounts/_list_record (0.02200)
+Rendered accounts/_list (0.14300)
+Completed in 0.21300 (4 reqs/sec) | Rendering: 0.17200 (80%) | DB: 0.01300 (6%) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2008-02-29 08:58:08) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACIKZmxhc2hJQzonQWN0aW9uQ29u%0AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--9a2517788d16629d26c1928fb002c075b1c15a97
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;35;1mSQL (0.000000)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT count(DISTINCT accounts.id) AS count_all FROM accounts LEFT OUTER JOIN transactions ON transactions.account_id = accounts.id [0m
+  [4;35;1mAccount Load IDs For Limited Eager Loading (0.001000)[0m   [0mSELECT id FROM accounts ORDER BY accounts."id" ASC LIMIT 10 OFFSET 0[0m
+  [4;36;1mAccount Load Including Associations (0.004000)[0m   [0;1mSELECT accounts."id" AS t0_r0, accounts."name" AS t0_r1, accounts."number" AS t0_r2, accounts."created_at" AS t0_r3, accounts."updated_at" AS t0_r4, transactions."id" AS t1_r0, transactions."date" AS t1_r1, transactions."number" AS t1_r2, transactions."payee_category" AS t1_r3, transactions."amount" AS t1_r4, transactions."credit" AS t1_r5, transactions."account_id" AS t1_r6, transactions."created_at" AS t1_r7, transactions."updated_at" AS t1_r8 FROM accounts LEFT OUTER JOIN transactions ON transactions.account_id = accounts.id WHERE accounts.id IN (2, 3, 4, 5) ORDER BY accounts."id" ASC[0m
+Rendering template within layouts/application
+Rendering accounts/list
+Rendered accounts/_list_header (0.00600)
+Rendered accounts/_list_column_headings (0.00900)
+Rendered accounts/_messages (0.00600)
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00800)
+Rendered accounts/_list_record (0.02800)
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00700)
+Rendered accounts/_list_record (0.02500)
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00700)
+Rendered accounts/_list_record (0.02900)
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00700)
+Rendered accounts/_list_record (0.02500)
+Rendered accounts/_list (0.16000)
+Completed in 0.23500 (4 reqs/sec) | Rendering: 0.19200 (81%) | DB: 0.01000 (4%) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2008-02-29 08:58:41) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACIKZmxhc2hJQzonQWN0aW9uQ29u%0AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--9a2517788d16629d26c1928fb002c075b1c15a97
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;35;1mSQL (0.000000)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT count(DISTINCT accounts.id) AS count_all FROM accounts LEFT OUTER JOIN transactions ON transactions.account_id = accounts.id [0m
+  [4;35;1mAccount Load IDs For Limited Eager Loading (0.001000)[0m   [0mSELECT id FROM accounts ORDER BY accounts."id" ASC LIMIT 10 OFFSET 0[0m
+  [4;36;1mAccount Load Including Associations (0.003000)[0m   [0;1mSELECT accounts."id" AS t0_r0, accounts."name" AS t0_r1, accounts."number" AS t0_r2, accounts."created_at" AS t0_r3, accounts."updated_at" AS t0_r4, transactions."id" AS t1_r0, transactions."date" AS t1_r1, transactions."number" AS t1_r2, transactions."payee_category" AS t1_r3, transactions."amount" AS t1_r4, transactions."credit" AS t1_r5, transactions."account_id" AS t1_r6, transactions."created_at" AS t1_r7, transactions."updated_at" AS t1_r8 FROM accounts LEFT OUTER JOIN transactions ON transactions.account_id = accounts.id WHERE accounts.id IN (2, 3, 4, 5) ORDER BY accounts."id" ASC[0m
+Rendering template within layouts/application
+Rendering accounts/list
+Rendered accounts/_list_header (0.00600)
+Rendered accounts/_list_column_headings (0.01000)
+Rendered accounts/_messages (0.00500)
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00500)
+Rendered accounts/_list_record (0.02500)
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00700)
+Rendered accounts/_list_record (0.02300)
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00700)
+Rendered accounts/_list_record (0.02200)
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00600)
+Rendered accounts/_list_record (0.02200)
+Rendered accounts/_list (0.23400)
+Completed in 0.30400 (3 reqs/sec) | Rendering: 0.26600 (87%) | DB: 0.00900 (2%) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2008-02-29 08:59:30) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACIKZmxhc2hJQzonQWN0aW9uQ29u%0AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--9a2517788d16629d26c1928fb002c075b1c15a97
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;35;1mSQL (0.000000)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT count(DISTINCT accounts.id) AS count_all FROM accounts LEFT OUTER JOIN transactions ON transactions.account_id = accounts.id [0m
+  [4;35;1mAccount Load IDs For Limited Eager Loading (0.001000)[0m   [0mSELECT id FROM accounts ORDER BY accounts."id" ASC LIMIT 10 OFFSET 0[0m
+  [4;36;1mAccount Load Including Associations (0.003000)[0m   [0;1mSELECT accounts."id" AS t0_r0, accounts."name" AS t0_r1, accounts."number" AS t0_r2, accounts."created_at" AS t0_r3, accounts."updated_at" AS t0_r4, transactions."id" AS t1_r0, transactions."date" AS t1_r1, transactions."number" AS t1_r2, transactions."payee_category" AS t1_r3, transactions."amount" AS t1_r4, transactions."credit" AS t1_r5, transactions."account_id" AS t1_r6, transactions."created_at" AS t1_r7, transactions."updated_at" AS t1_r8 FROM accounts LEFT OUTER JOIN transactions ON transactions.account_id = accounts.id WHERE accounts.id IN (2, 3, 4, 5) ORDER BY accounts."id" ASC[0m
+Rendering template within layouts/application
+Rendering accounts/list
+Rendered accounts/_list_header (0.00600)
+Rendered accounts/_list_column_headings (0.00900)
+Rendered accounts/_messages (0.00400)
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00700)
+Rendered accounts/_list_record (0.02600)
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00600)
+Rendered accounts/_list_record (0.02300)
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00600)
+Rendered accounts/_list_record (0.02200)
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00600)
+Rendered accounts/_list_record (0.02200)
+Rendered accounts/_list (0.13800)
+
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.strftime) on line #38 of layouts/application.html.erb:
+35: 				<li><%= link_to "Payees", payees_url %></li>
+36: 				<li><%= link_to "Reports", reports_url %></li>				
+37: 			</ul>
+38: 		<div id="date"><%= t = Time.now t.strftime("%B %d, %Y") %></div>
+39: 		</div>
+40: 	
+41: 		<%= yield  %>
+
+    app/views/layouts/application.html.erb:38:in `_run_erb_47app47views47layouts47application46html46erb'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `send'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `compile_and_render_template'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:365:in `render_template'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:316:in `render_file'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/layout.rb:268:in `render_without_benchmark'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render_without_active_scaffold'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render_without_active_scaffold'
+    vendor/plugins/active_scaffold/lib/extensions/action_controller_rendering.rb:13:in `render'
+    vendor/plugins/active_scaffold/lib/actions/list.rb:37:in `list'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:131:in `call'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:131:in `custom'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:152:in `call'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:152:in `respond'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:150:in `each'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:150:in `respond'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    vendor/plugins/active_scaffold/lib/actions/list.rb:35:in `list'
+    vendor/plugins/active_scaffold/lib/actions/list.rb:8:in `index'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    C:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    C:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    C:/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    C:/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    C:/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'
+    C:/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    C:/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+    -e:2:in `load'
+    -e:2
+
+Rendering C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2008-02-29 08:59:59) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACIKZmxhc2hJQzonQWN0aW9uQ29u%0AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--9a2517788d16629d26c1928fb002c075b1c15a97
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;35;1mSQL (0.000000)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT count(DISTINCT accounts.id) AS count_all FROM accounts LEFT OUTER JOIN transactions ON transactions.account_id = accounts.id [0m
+  [4;35;1mAccount Load IDs For Limited Eager Loading (0.001000)[0m   [0mSELECT id FROM accounts ORDER BY accounts."id" ASC LIMIT 10 OFFSET 0[0m
+  [4;36;1mAccount Load Including Associations (0.003000)[0m   [0;1mSELECT accounts."id" AS t0_r0, accounts."name" AS t0_r1, accounts."number" AS t0_r2, accounts."created_at" AS t0_r3, accounts."updated_at" AS t0_r4, transactions."id" AS t1_r0, transactions."date" AS t1_r1, transactions."number" AS t1_r2, transactions."payee_category" AS t1_r3, transactions."amount" AS t1_r4, transactions."credit" AS t1_r5, transactions."account_id" AS t1_r6, transactions."created_at" AS t1_r7, transactions."updated_at" AS t1_r8 FROM accounts LEFT OUTER JOIN transactions ON transactions.account_id = accounts.id WHERE accounts.id IN (2, 3, 4, 5) ORDER BY accounts."id" ASC[0m
+Rendering template within layouts/application
+Rendering accounts/list
+Rendered accounts/_list_header (0.00600)
+Rendered accounts/_list_column_headings (0.01100)
+Rendered accounts/_messages (0.00500)
+  [4;35;1mSQL (0.002000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00700)
+Rendered accounts/_list_record (0.02600)
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00600)
+Rendered accounts/_list_record (0.02400)
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00800)
+Rendered accounts/_list_record (0.02400)
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00700)
+Rendered accounts/_list_record (0.02300)
+Rendered accounts/_list (0.14600)
+Completed in 0.21800 (4 reqs/sec) | Rendering: 0.17600 (80%) | DB: 0.01300 (5%) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2008-02-29 09:00:20) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACIKZmxhc2hJQzonQWN0aW9uQ29u%0AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--9a2517788d16629d26c1928fb002c075b1c15a97
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;35;1mSQL (0.000000)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT count(DISTINCT accounts.id) AS count_all FROM accounts LEFT OUTER JOIN transactions ON transactions.account_id = accounts.id [0m
+  [4;35;1mAccount Load IDs For Limited Eager Loading (0.001000)[0m   [0mSELECT id FROM accounts ORDER BY accounts."id" ASC LIMIT 10 OFFSET 0[0m
+  [4;36;1mAccount Load Including Associations (0.003000)[0m   [0;1mSELECT accounts."id" AS t0_r0, accounts."name" AS t0_r1, accounts."number" AS t0_r2, accounts."created_at" AS t0_r3, accounts."updated_at" AS t0_r4, transactions."id" AS t1_r0, transactions."date" AS t1_r1, transactions."number" AS t1_r2, transactions."payee_category" AS t1_r3, transactions."amount" AS t1_r4, transactions."credit" AS t1_r5, transactions."account_id" AS t1_r6, transactions."created_at" AS t1_r7, transactions."updated_at" AS t1_r8 FROM accounts LEFT OUTER JOIN transactions ON transactions.account_id = accounts.id WHERE accounts.id IN (2, 3, 4, 5) ORDER BY accounts."id" ASC[0m
+Rendering template within layouts/application
+Rendering accounts/list
+Rendered accounts/_list_header (0.00600)
+Rendered accounts/_list_column_headings (0.00900)
+Rendered accounts/_messages (0.00500)
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00600)
+Rendered accounts/_list_record (0.02600)
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00800)
+Rendered accounts/_list_record (0.02400)
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.01000)
+Rendered accounts/_list_record (0.02900)
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00800)
+Rendered accounts/_list_record (0.02500)
+Rendered accounts/_list (0.15200)
+Completed in 0.22300 (4 reqs/sec) | Rendering: 0.18600 (83%) | DB: 0.00900 (4%) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2008-02-29 09:01:23) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACIKZmxhc2hJQzonQWN0aW9uQ29u%0AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--9a2517788d16629d26c1928fb002c075b1c15a97
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;35;1mSQL (0.000000)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT count(DISTINCT accounts.id) AS count_all FROM accounts LEFT OUTER JOIN transactions ON transactions.account_id = accounts.id [0m
+  [4;35;1mAccount Load IDs For Limited Eager Loading (0.001000)[0m   [0mSELECT id FROM accounts ORDER BY accounts."id" ASC LIMIT 10 OFFSET 0[0m
+  [4;36;1mAccount Load Including Associations (0.004000)[0m   [0;1mSELECT accounts."id" AS t0_r0, accounts."name" AS t0_r1, accounts."number" AS t0_r2, accounts."created_at" AS t0_r3, accounts."updated_at" AS t0_r4, transactions."id" AS t1_r0, transactions."date" AS t1_r1, transactions."number" AS t1_r2, transactions."payee_category" AS t1_r3, transactions."amount" AS t1_r4, transactions."credit" AS t1_r5, transactions."account_id" AS t1_r6, transactions."created_at" AS t1_r7, transactions."updated_at" AS t1_r8 FROM accounts LEFT OUTER JOIN transactions ON transactions.account_id = accounts.id WHERE accounts.id IN (2, 3, 4, 5) ORDER BY accounts."id" ASC[0m
+Rendering template within layouts/application
+Rendering accounts/list
+Rendered accounts/_list_header (0.00600)
+Rendered accounts/_list_column_headings (0.00900)
+Rendered accounts/_messages (0.00400)
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00800)
+Rendered accounts/_list_record (0.02700)
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00700)
+Rendered accounts/_list_record (0.02300)
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00600)
+Rendered accounts/_list_record (0.02400)
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00700)
+Rendered accounts/_list_record (0.02400)
+Rendered accounts/_list (0.14500)
+Completed in 0.29400 (3 reqs/sec) | Rendering: 0.16900 (57%) | DB: 0.00900 (3%) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2008-02-29 09:02:15) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACIKZmxhc2hJQzonQWN0aW9uQ29u%0AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--9a2517788d16629d26c1928fb002c075b1c15a97
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;35;1mSQL (0.000000)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT count(DISTINCT accounts.id) AS count_all FROM accounts LEFT OUTER JOIN transactions ON transactions.account_id = accounts.id [0m
+  [4;35;1mAccount Load IDs For Limited Eager Loading (0.001000)[0m   [0mSELECT id FROM accounts ORDER BY accounts."id" ASC LIMIT 10 OFFSET 0[0m
+  [4;36;1mAccount Load Including Associations (0.004000)[0m   [0;1mSELECT accounts."id" AS t0_r0, accounts."name" AS t0_r1, accounts."number" AS t0_r2, accounts."created_at" AS t0_r3, accounts."updated_at" AS t0_r4, transactions."id" AS t1_r0, transactions."date" AS t1_r1, transactions."number" AS t1_r2, transactions."payee_category" AS t1_r3, transactions."amount" AS t1_r4, transactions."credit" AS t1_r5, transactions."account_id" AS t1_r6, transactions."created_at" AS t1_r7, transactions."updated_at" AS t1_r8 FROM accounts LEFT OUTER JOIN transactions ON transactions.account_id = accounts.id WHERE accounts.id IN (2, 3, 4, 5) ORDER BY accounts."id" ASC[0m
+Rendering template within layouts/application
+Rendering accounts/list
+Rendered accounts/_list_header (0.00600)
+Rendered accounts/_list_column_headings (0.00900)
+Rendered accounts/_messages (0.00400)
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00700)
+Rendered accounts/_list_record (0.02600)
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00800)
+Rendered accounts/_list_record (0.02400)
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00700)
+Rendered accounts/_list_record (0.02300)
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.002000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00700)
+Rendered accounts/_list_record (0.02500)
+Rendered accounts/_list (0.14500)
+Completed in 0.21300 (4 reqs/sec) | Rendering: 0.17200 (80%) | DB: 0.01300 (6%) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2008-02-29 09:02:19) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACIKZmxhc2hJQzonQWN0aW9uQ29u%0AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--9a2517788d16629d26c1928fb002c075b1c15a97
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;35;1mSQL (0.000000)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT count(DISTINCT accounts.id) AS count_all FROM accounts LEFT OUTER JOIN transactions ON transactions.account_id = accounts.id [0m
+  [4;35;1mAccount Load IDs For Limited Eager Loading (0.000000)[0m   [0mSELECT id FROM accounts ORDER BY accounts."id" ASC LIMIT 10 OFFSET 0[0m
+  [4;36;1mAccount Load Including Associations (0.004000)[0m   [0;1mSELECT accounts."id" AS t0_r0, accounts."name" AS t0_r1, accounts."number" AS t0_r2, accounts."created_at" AS t0_r3, accounts."updated_at" AS t0_r4, transactions."id" AS t1_r0, transactions."date" AS t1_r1, transactions."number" AS t1_r2, transactions."payee_category" AS t1_r3, transactions."amount" AS t1_r4, transactions."credit" AS t1_r5, transactions."account_id" AS t1_r6, transactions."created_at" AS t1_r7, transactions."updated_at" AS t1_r8 FROM accounts LEFT OUTER JOIN transactions ON transactions.account_id = accounts.id WHERE accounts.id IN (2, 3, 4, 5) ORDER BY accounts."id" ASC[0m
+Rendering template within layouts/application
+Rendering accounts/list
+Rendered accounts/_list_header (0.00600)
+Rendered accounts/_list_column_headings (0.00800)
+Rendered accounts/_messages (0.00400)
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00700)
+Rendered accounts/_list_record (0.02700)
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00700)
+Rendered accounts/_list_record (0.02500)
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00700)
+Rendered accounts/_list_record (0.02400)
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00600)
+Rendered accounts/_list_record (0.02300)
+Rendered accounts/_list (0.14700)
+Completed in 0.21100 (4 reqs/sec) | Rendering: 0.17300 (81%) | DB: 0.00800 (3%) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#nested (for 127.0.0.1 at 2008-02-29 09:02:46) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACIKZmxhc2hJQzonQWN0aW9uQ29u%0AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--9a2517788d16629d26c1928fb002c075b1c15a97
+  Parameters: {"associations"=>"transactions", "adapter"=>"_list_inline_adapter", "_method"=>"get", "action"=>"nested", "id"=>"2", "controller"=>"accounts"}
+  [4;35;1mAccount Load (0.001000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Start rendering component ({:params=>{:eid=>"2b5ffa5ee6989697cc5b3951c4e03dbd", :parent_column=>"transactions", :nested=>true, :parent_model=>Account(id: integer, name: string, number: string, created_at: datetime, updated_at: datetime)}, :controller=>"transactions", :action=>"table"}): 
+
+
+Processing TransactionsController#table (for 127.0.0.1 at 2008-02-29 09:02:47) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACIKZmxhc2hJQzonQWN0aW9uQ29u%0AdHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--9a2517788d16629d26c1928fb002c075b1c15a97
+  [4;35;1mSQL (0.001000)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  Parameters: {"parent_column"=>"transactions", "eid"=>"2b5ffa5ee6989697cc5b3951c4e03dbd", "nested"=>true, "action"=>"table", "id"=>nil, "controller"=>"transactions", "parent_model"=>Account(id: integer, name: string, number: string, created_at: datetime, updated_at: datetime)}
+  [4;36;1mSQL (0.001000)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT count(DISTINCT transactions.id) AS count_all FROM transactions LEFT OUTER JOIN accounts ON accounts.id = transactions.account_id WHERE (transactions.account_id = '2') [0m
+  [4;36;1mTransaction Load Including Associations (0.003000)[0m   [0;1mSELECT transactions."id" AS t0_r0, transactions."date" AS t0_r1, transactions."number" AS t0_r2, transactions."payee_category" AS t0_r3, transactions."amount" AS t0_r4, transactions."credit" AS t0_r5, transactions."account_id" AS t0_r6, transactions."created_at" AS t0_r7, transactions."updated_at" AS t0_r8, accounts."id" AS t1_r0, accounts."name" AS t1_r1, accounts."number" AS t1_r2, accounts."created_at" AS t1_r3, accounts."updated_at" AS t1_r4 FROM transactions LEFT OUTER JOIN accounts ON accounts.id = transactions.account_id WHERE (transactions.account_id = '2') ORDER BY transactions."id" ASC LIMIT 10 OFFSET 0[0m
+Rendering transactions/list
+Rendered transactions/_list_header (0.00800)
+Rendered transactions/_list_column_headings (0.01500)
+Rendered transactions/_messages (0.00400)
+Rendered transactions/_list_actions (0.01000)
+Rendered transactions/_list_record (0.02500)
+Rendered transactions/_list_actions (0.00600)
+Rendered transactions/_list_record (0.01900)
+Rendered transactions/_list_actions (0.00700)
+Rendered transactions/_list_record (0.02000)
+Rendered transactions/_list_actions (0.00600)
+Rendered transactions/_list_record (0.01900)
+Rendered transactions/_list (0.13600)
+Completed in 0.18500 (5 reqs/sec) | Rendering: 0.16500 (89%) | DB: 0.00700 (3%) | 200 OK [http://localhost/accounts/2/nested?_method=get&associations=transactions&adapter=_list_inline_adapter]
+
+
+End of component rendering
+Rendered accounts/_nested (0.28700)
+Rendering _list_inline_adapter
+Rendered core/_messages (0.00400)
+Completed in 0.33300 (3 reqs/sec) | Rendering: 0.02600 (7%) | DB: 0.00000 (0%) | 200 OK [http://localhost/accounts/2/nested?_method=get&associations=transactions&adapter=_list_inline_adapter]
+
+
+Processing AccountsController#row (for 127.0.0.1 at 2008-02-29 09:02:54) [GET]
+  Session ID: BAh7CToMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACIoYXM6MmI1ZmZhNWVlNjk4OTY5%0AN2NjNWIzOTUxYzRlMDNkYmR7CDoQY29uc3RyYWludHN7BjoMYWNjb3VudCIG%0AMjsGewY6CmxhYmVsIh5UcmFuc2FjdGlvbnMgZm9yIENoZWNraW5nOg9jb25k%0AaXRpb25zMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZs%0AYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--e4b87f15a78b746787425573dd703c08e3f58487
+  Parameters: {"_method"=>"get", "action"=>"row", "id"=>"2", "controller"=>"accounts"}
+  [4;35;1mAccount Load (0.001000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT count(*) AS count_all FROM transactions WHERE (transactions.account_id = 2) [0m
+  [4;35;1mTransaction Load (0.001000)[0m   [0mSELECT * FROM transactions WHERE (transactions.account_id = 2) [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 't') [0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 'f') [0m
+Rendered accounts/_list_actions (0.00700)
+Rendered accounts/_list_record (0.04700)
+Completed in 0.06100 (16 reqs/sec) | Rendering: 0.04900 (80%) | DB: 0.00400 (6%) | 200 OK [http://localhost/accounts/2/row?_method=get]
+
+
+Processing BillsController#index (for 127.0.0.1 at 2008-02-29 09:02:58) [GET]
+  Session ID: BAh7CToMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACIoYXM6MmI1ZmZhNWVlNjk4OTY5%0AN2NjNWIzOTUxYzRlMDNkYmR7CDoQY29uc3RyYWludHN7BjoMYWNjb3VudCIG%0AMjsGewY6CmxhYmVsIh5UcmFuc2FjdGlvbnMgZm9yIENoZWNraW5nOg9jb25k%0AaXRpb25zMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZs%0AYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--e4b87f15a78b746787425573dd703c08e3f58487
+  Parameters: {"action"=>"index", "controller"=>"bills"}
+  [4;36;1mSQL (0.001000)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT count(DISTINCT bills.id) AS count_all FROM bills LEFT OUTER JOIN payees ON payees.id = bills.payee_id LEFT OUTER JOIN accounts ON accounts.id = bills.account_id LEFT OUTER JOIN categories ON categories.id = bills.category_id [0m
+  [4;36;1mBill Load Including Associations (0.003000)[0m   [0;1mSELECT bills."id" AS t0_r0, bills."payee_id" AS t0_r1, bills."account_id" AS t0_r2, bills."number" AS t0_r3, bills."next_payment_date" AS t0_r4, bills."payment_method" AS t0_r5, bills."frequency" AS t0_r6, bills."amount" AS t0_r7, bills."category_id" AS t0_r8, bills."created_at" AS t0_r9, bills."updated_at" AS t0_r10, payees."id" AS t1_r0, payees."name" AS t1_r1, payees."phone_number" AS t1_r2, payees."created_at" AS t1_r3, payees."updated_at" AS t1_r4, accounts."id" AS t2_r0, accounts."name" AS t2_r1, accounts."number" AS t2_r2, accounts."created_at" AS t2_r3, accounts."updated_at" AS t2_r4, categories."id" AS t3_r0, categories."name" AS t3_r1, categories."credit" AS t3_r2, categories."created_at" AS t3_r3, categories."updated_at" AS t3_r4 FROM bills LEFT OUTER JOIN payees ON payees.id = bills.payee_id LEFT OUTER JOIN accounts ON accounts.id = bills.account_id LEFT OUTER JOIN categories ON categories.id = bills.category_id ORDER BY bills."id" ASC LIMIT 10 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering bills/list
+Rendered bills/_list_header (0.00800)
+Rendered bills/_list_column_headings (0.01700)
+Rendered bills/_messages (0.00400)
+  [4;35;1mAccount Load (0.001000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+Rendered bills/_list_actions (0.01400)
+Rendered bills/_list_record (0.03600)
+Rendered bills/_list_actions (0.01100)
+Rendered bills/_list_record (0.02800)
+Rendered bills/_list_actions (0.00700)
+Rendered bills/_list_record (0.02500)
+Rendered bills/_list (0.14400)
+Completed in 0.29000 (3 reqs/sec) | Rendering: 0.17700 (61%) | DB: 0.00600 (2%) | 200 OK [http://localhost/bills]
+
+
+Processing ReportsController#index (for 127.0.0.1 at 2008-02-29 09:03:19) [GET]
+  Session ID: BAh7CjoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACINYXM6YmlsbHN7BjsGewAiKGFz%0AOjJiNWZmYTVlZTY5ODk2OTdjYzViMzk1MWM0ZTAzZGJkewg6EGNvbnN0cmFp%0AbnRzewY6DGFjY291bnQiBjI7BnsGOgpsYWJlbCIeVHJhbnNhY3Rpb25zIGZv%0AciBDaGVja2luZzoPY29uZGl0aW9uczAiCmZsYXNoSUM6J0FjdGlvbkNvbnRy%0Ab2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--f95c326b58916d7e06fd0140c11522ab58de97c6
+  Parameters: {"action"=>"index", "controller"=>"reports"}
+Rendering template within layouts/application
+Rendering reports/index
+Completed in 0.01400 (71 reqs/sec) | Rendering: 0.00800 (57%) | DB: 0.00000 (0%) | 200 OK [http://localhost/reports]
+
+
+Processing ReportsController#spending_by_category (for 127.0.0.1 at 2008-02-29 09:04:48) [GET]
+  Session ID: BAh7CjoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACINYXM6YmlsbHN7BjsGewAiKGFz%0AOjJiNWZmYTVlZTY5ODk2OTdjYzViMzk1MWM0ZTAzZGJkewg6EGNvbnN0cmFp%0AbnRzewY6DGFjY291bnQiBjI7BnsGOgpsYWJlbCIeVHJhbnNhY3Rpb25zIGZv%0AciBDaGVja2luZzoPY29uZGl0aW9uczAiCmZsYXNoSUM6J0FjdGlvbkNvbnRy%0Ab2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--f95c326b58916d7e06fd0140c11522ab58de97c6
+  Parameters: {"action"=>"spending_by_category", "id"=>"1", "controller"=>"reports"}
+  [4;36;1mCategory Load (0.001000)[0m   [0;1mSELECT * FROM categories [0m
+Rendering template within layouts/application
+Rendering reports/spending_by_category
+  [4;35;1mBill Load (0.001000)[0m   [0mSELECT * FROM bills WHERE (bills.category_id = 1) [0m
+  [4;36;1mAccount Load (0.001000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;35;1mPayee Load (0.000000)[0m   [0mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+  [4;36;1mBill Load (0.001000)[0m   [0;1mSELECT * FROM bills WHERE (bills.category_id = 2) [0m
+  [4;35;1mAccount Load (0.000000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+Completed in 0.07800 (12 reqs/sec) | Rendering: 0.05700 (73%) | DB: 0.00400 (5%) | 200 OK [http://localhost/reports/spending_by_category/1]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-02-29 11:50:17) [GET]
+  Session ID: BAh7CjoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACINYXM6YmlsbHN7BjsGewAiKGFz%0AOjJiNWZmYTVlZTY5ODk2OTdjYzViMzk1MWM0ZTAzZGJkewg6EGNvbnN0cmFp%0AbnRzewY6DGFjY291bnQiBjI7BnsGOgpsYWJlbCIeVHJhbnNhY3Rpb25zIGZv%0AciBDaGVja2luZzoPY29uZGl0aW9uczAiCmZsYXNoSUM6J0FjdGlvbkNvbnRy%0Ab2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--f95c326b58916d7e06fd0140c11522ab58de97c6
+  Parameters: {"action"=>"index", "controller"=>"home"}
+  [4;35;1mAccount Load (0.002000)[0m   [0mSELECT * FROM accounts [0m
+Rendering template within layouts/application
+Rendering home/index
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 't') [0m
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 'f') [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 't') [0m
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 'f') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 't') [0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 'f') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 't') [0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 'f') [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM accounts [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 't') [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 'f') [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 't') [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 'f') [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 't') [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 'f') [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 't') [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 'f') [0m
+Completed in 0.07300 (13 reqs/sec) | Rendering: 0.03900 (53%) | DB: 0.00700 (9%) | 200 OK [http://localhost/]
