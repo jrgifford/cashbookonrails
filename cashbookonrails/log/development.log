@@ -26417,3 +26417,382 @@ Rendering home/index
   [4;35;1mCACHE (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 't') [0m
   [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 'f') [0m
 Completed in 0.07300 (13 reqs/sec) | Rendering: 0.03900 (53%) | DB: 0.00700 (9%) | 200 OK [http://localhost/]
+
+
+Processing ReportsController#index (for 127.0.0.1 at 2008-02-29 15:17:42) [GET]
+  Session ID: BAh7CjoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACINYXM6YmlsbHN7BjsGewAiKGFz%0AOjJiNWZmYTVlZTY5ODk2OTdjYzViMzk1MWM0ZTAzZGJkewg6EGNvbnN0cmFp%0AbnRzewY6DGFjY291bnQiBjI7BnsGOgpsYWJlbCIeVHJhbnNhY3Rpb25zIGZv%0AciBDaGVja2luZzoPY29uZGl0aW9uczAiCmZsYXNoSUM6J0FjdGlvbkNvbnRy%0Ab2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--f95c326b58916d7e06fd0140c11522ab58de97c6
+  Parameters: {"action"=>"index", "controller"=>"reports"}
+Rendering template within layouts/application
+Rendering reports/index
+Completed in 0.02600 (38 reqs/sec) | Rendering: 0.02000 (76%) | DB: 0.00000 (0%) | 200 OK [http://localhost/reports]
+
+
+Processing ReportsController#spending_by_category (for 127.0.0.1 at 2008-02-29 15:18:12) [GET]
+  Session ID: BAh7CjoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACINYXM6YmlsbHN7BjsGewAiKGFz%0AOjJiNWZmYTVlZTY5ODk2OTdjYzViMzk1MWM0ZTAzZGJkewg6EGNvbnN0cmFp%0AbnRzewY6DGFjY291bnQiBjI7BnsGOgpsYWJlbCIeVHJhbnNhY3Rpb25zIGZv%0AciBDaGVja2luZzoPY29uZGl0aW9uczAiCmZsYXNoSUM6J0FjdGlvbkNvbnRy%0Ab2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--f95c326b58916d7e06fd0140c11522ab58de97c6
+  Parameters: {"action"=>"spending_by_category", "id"=>"1", "controller"=>"reports"}
+  [4;35;1mCategory Load (0.002000)[0m   [0mSELECT * FROM categories [0m
+Rendering template within layouts/application
+Rendering reports/spending_by_category
+  [4;36;1mBill Load (0.019000)[0m   [0;1mSELECT * FROM bills WHERE (bills.category_id = 1) [0m
+  [4;35;1mAccount Load (0.025000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;36;1mPayee Load (0.001000)[0m   [0;1mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+  [4;35;1mBill Load (0.001000)[0m   [0mSELECT * FROM bills WHERE (bills.category_id = 2) [0m
+  [4;36;1mAccount Load (0.000000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+Completed in 0.19700 (5 reqs/sec) | Rendering: 0.13000 (65%) | DB: 0.04800 (24%) | 200 OK [http://localhost/reports/spending_by_category/1]
+
+
+Processing ReportsController#index (for 127.0.0.1 at 2008-02-29 15:18:36) [GET]
+  Session ID: BAh7CjoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACINYXM6YmlsbHN7BjsGewAiKGFz%0AOjJiNWZmYTVlZTY5ODk2OTdjYzViMzk1MWM0ZTAzZGJkewg6EGNvbnN0cmFp%0AbnRzewY6DGFjY291bnQiBjI7BnsGOgpsYWJlbCIeVHJhbnNhY3Rpb25zIGZv%0AciBDaGVja2luZzoPY29uZGl0aW9uczAiCmZsYXNoSUM6J0FjdGlvbkNvbnRy%0Ab2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--f95c326b58916d7e06fd0140c11522ab58de97c6
+  Parameters: {"action"=>"index", "controller"=>"reports"}
+Rendering template within layouts/application
+Rendering reports/index
+Completed in 0.02400 (41 reqs/sec) | Rendering: 0.01900 (79%) | DB: 0.00000 (0%) | 200 OK [http://localhost/reports]
+
+
+Processing ReportsController#spending_by_category (for 127.0.0.1 at 2008-02-29 15:18:37) [GET]
+  Session ID: BAh7CjoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACINYXM6YmlsbHN7BjsGewAiKGFz%0AOjJiNWZmYTVlZTY5ODk2OTdjYzViMzk1MWM0ZTAzZGJkewg6EGNvbnN0cmFp%0AbnRzewY6DGFjY291bnQiBjI7BnsGOgpsYWJlbCIeVHJhbnNhY3Rpb25zIGZv%0AciBDaGVja2luZzoPY29uZGl0aW9uczAiCmZsYXNoSUM6J0FjdGlvbkNvbnRy%0Ab2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--f95c326b58916d7e06fd0140c11522ab58de97c6
+  Parameters: {"action"=>"spending_by_category", "id"=>"1", "controller"=>"reports"}
+  [4;36;1mCategory Load (0.002000)[0m   [0;1mSELECT * FROM categories [0m
+Rendering template within layouts/application
+Rendering reports/spending_by_category
+  [4;35;1mBill Load (0.002000)[0m   [0mSELECT * FROM bills WHERE (bills.category_id = 1) [0m
+  [4;36;1mAccount Load (0.001000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;35;1mPayee Load (0.001000)[0m   [0mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+  [4;36;1mBill Load (0.001000)[0m   [0;1mSELECT * FROM bills WHERE (bills.category_id = 2) [0m
+  [4;35;1mAccount Load (0.000000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+Completed in 0.14400 (6 reqs/sec) | Rendering: 0.11900 (82%) | DB: 0.00700 (4%) | 200 OK [http://localhost/reports/spending_by_category/1]
+
+
+Processing ReportsController#spending_by_category (for 127.0.0.1 at 2008-02-29 15:19:04) [GET]
+  Session ID: BAh7CjoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACINYXM6YmlsbHN7BjsGewAiKGFz%0AOjJiNWZmYTVlZTY5ODk2OTdjYzViMzk1MWM0ZTAzZGJkewg6EGNvbnN0cmFp%0AbnRzewY6DGFjY291bnQiBjI7BnsGOgpsYWJlbCIeVHJhbnNhY3Rpb25zIGZv%0AciBDaGVja2luZzoPY29uZGl0aW9uczAiCmZsYXNoSUM6J0FjdGlvbkNvbnRy%0Ab2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--f95c326b58916d7e06fd0140c11522ab58de97c6
+  Parameters: {"action"=>"spending_by_category", "id"=>"1", "controller"=>"reports"}
+  [4;35;1mCategory Load (0.000000)[0m   [0mSELECT * FROM categories [0m
+Rendering template within layouts/application
+Rendering reports/spending_by_category
+  [4;36;1mBill Load (0.001000)[0m   [0;1mSELECT * FROM bills WHERE (bills.category_id = 1) [0m
+  [4;35;1mAccount Load (0.001000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;36;1mPayee Load (0.001000)[0m   [0;1mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+  [4;35;1mBill Load (0.001000)[0m   [0mSELECT * FROM bills WHERE (bills.category_id = 2) [0m
+  [4;36;1mAccount Load (0.001000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+Completed in 0.09200 (10 reqs/sec) | Rendering: 0.06800 (73%) | DB: 0.00500 (5%) | 200 OK [http://localhost/reports/spending_by_category/1]
+
+
+Processing ReportsController#spending_by_category (for 127.0.0.1 at 2008-02-29 15:19:22) [GET]
+  Session ID: BAh7CjoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACINYXM6YmlsbHN7BjsGewAiKGFz%0AOjJiNWZmYTVlZTY5ODk2OTdjYzViMzk1MWM0ZTAzZGJkewg6EGNvbnN0cmFp%0AbnRzewY6DGFjY291bnQiBjI7BnsGOgpsYWJlbCIeVHJhbnNhY3Rpb25zIGZv%0AciBDaGVja2luZzoPY29uZGl0aW9uczAiCmZsYXNoSUM6J0FjdGlvbkNvbnRy%0Ab2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--f95c326b58916d7e06fd0140c11522ab58de97c6
+  Parameters: {"action"=>"spending_by_category", "id"=>"1", "controller"=>"reports"}
+  [4;36;1mCategory Load (0.002000)[0m   [0;1mSELECT * FROM categories [0m
+Rendering template within layouts/application
+Rendering reports/spending_by_category
+  [4;35;1mBill Load (0.001000)[0m   [0mSELECT * FROM bills WHERE (bills.category_id = 1) [0m
+  [4;36;1mAccount Load (0.000000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;35;1mPayee Load (0.001000)[0m   [0mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+  [4;36;1mBill Load (0.003000)[0m   [0;1mSELECT * FROM bills WHERE (bills.category_id = 2) [0m
+  [4;35;1mAccount Load (0.000000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+Completed in 0.12000 (8 reqs/sec) | Rendering: 0.08000 (66%) | DB: 0.00700 (5%) | 200 OK [http://localhost/reports/spending_by_category/1]
+
+
+Processing ReportsController#spending_by_category (for 127.0.0.1 at 2008-02-29 15:19:25) [GET]
+  Session ID: BAh7CjoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACINYXM6YmlsbHN7BjsGewAiKGFz%0AOjJiNWZmYTVlZTY5ODk2OTdjYzViMzk1MWM0ZTAzZGJkewg6EGNvbnN0cmFp%0AbnRzewY6DGFjY291bnQiBjI7BnsGOgpsYWJlbCIeVHJhbnNhY3Rpb25zIGZv%0AciBDaGVja2luZzoPY29uZGl0aW9uczAiCmZsYXNoSUM6J0FjdGlvbkNvbnRy%0Ab2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--f95c326b58916d7e06fd0140c11522ab58de97c6
+  Parameters: {"action"=>"spending_by_category", "id"=>"1", "controller"=>"reports"}
+  [4;35;1mCategory Load (0.002000)[0m   [0mSELECT * FROM categories [0m
+Rendering template within layouts/application
+Rendering reports/spending_by_category
+  [4;36;1mBill Load (0.001000)[0m   [0;1mSELECT * FROM bills WHERE (bills.category_id = 1) [0m
+  [4;35;1mAccount Load (0.001000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;36;1mPayee Load (0.001000)[0m   [0;1mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+  [4;35;1mBill Load (0.001000)[0m   [0mSELECT * FROM bills WHERE (bills.category_id = 2) [0m
+  [4;36;1mAccount Load (0.001000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+Completed in 0.09500 (10 reqs/sec) | Rendering: 0.06300 (66%) | DB: 0.00700 (7%) | 200 OK [http://localhost/reports/spending_by_category/1]
+
+
+Processing ReportsController#spending_by_category (for 127.0.0.1 at 2008-02-29 15:19:32) [GET]
+  Session ID: BAh7CjoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACINYXM6YmlsbHN7BjsGewAiKGFz%0AOjJiNWZmYTVlZTY5ODk2OTdjYzViMzk1MWM0ZTAzZGJkewg6EGNvbnN0cmFp%0AbnRzewY6DGFjY291bnQiBjI7BnsGOgpsYWJlbCIeVHJhbnNhY3Rpb25zIGZv%0AciBDaGVja2luZzoPY29uZGl0aW9uczAiCmZsYXNoSUM6J0FjdGlvbkNvbnRy%0Ab2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--f95c326b58916d7e06fd0140c11522ab58de97c6
+  Parameters: {"action"=>"spending_by_category", "id"=>"1", "controller"=>"reports"}
+  [4;36;1mCategory Load (0.001000)[0m   [0;1mSELECT * FROM categories [0m
+Rendering template within layouts/application
+Rendering reports/spending_by_category
+  [4;35;1mBill Load (0.002000)[0m   [0mSELECT * FROM bills WHERE (bills.category_id = 1) [0m
+  [4;36;1mAccount Load (0.001000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;35;1mPayee Load (0.001000)[0m   [0mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+  [4;36;1mBill Load (0.002000)[0m   [0;1mSELECT * FROM bills WHERE (bills.category_id = 2) [0m
+  [4;35;1mAccount Load (0.001000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+Completed in 0.09900 (10 reqs/sec) | Rendering: 0.07300 (73%) | DB: 0.00800 (8%) | 200 OK [http://localhost/reports/spending_by_category/1]
+
+
+Processing ReportsController#spending_by_category (for 127.0.0.1 at 2008-02-29 15:21:04) [GET]
+  Session ID: BAh7CjoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACINYXM6YmlsbHN7BjsGewAiKGFz%0AOjJiNWZmYTVlZTY5ODk2OTdjYzViMzk1MWM0ZTAzZGJkewg6EGNvbnN0cmFp%0AbnRzewY6DGFjY291bnQiBjI7BnsGOgpsYWJlbCIeVHJhbnNhY3Rpb25zIGZv%0AciBDaGVja2luZzoPY29uZGl0aW9uczAiCmZsYXNoSUM6J0FjdGlvbkNvbnRy%0Ab2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--f95c326b58916d7e06fd0140c11522ab58de97c6
+  Parameters: {"action"=>"spending_by_category", "id"=>"1", "controller"=>"reports"}
+  [4;35;1mCategory Load (0.001000)[0m   [0mSELECT * FROM categories [0m
+Rendering template within layouts/application
+Rendering reports/spending_by_category
+  [4;36;1mBill Load (0.001000)[0m   [0;1mSELECT * FROM bills WHERE (bills.category_id = 1) [0m
+  [4;35;1mAccount Load (0.001000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;36;1mPayee Load (0.001000)[0m   [0;1mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+  [4;35;1mBill Load (0.001000)[0m   [0mSELECT * FROM bills WHERE (bills.category_id = 2) [0m
+  [4;36;1mAccount Load (0.001000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+Completed in 0.09000 (11 reqs/sec) | Rendering: 0.06600 (73%) | DB: 0.00600 (6%) | 200 OK [http://localhost/reports/spending_by_category/1]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-02-29 15:22:22) [GET]
+  Session ID: BAh7CjoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACINYXM6YmlsbHN7BjsGewAiKGFz%0AOjJiNWZmYTVlZTY5ODk2OTdjYzViMzk1MWM0ZTAzZGJkewg6EGNvbnN0cmFp%0AbnRzewY6DGFjY291bnQiBjI7BnsGOgpsYWJlbCIeVHJhbnNhY3Rpb25zIGZv%0AciBDaGVja2luZzoPY29uZGl0aW9uczAiCmZsYXNoSUM6J0FjdGlvbkNvbnRy%0Ab2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--f95c326b58916d7e06fd0140c11522ab58de97c6
+  Parameters: {"action"=>"index", "controller"=>"home"}
+  [4;36;1mAccount Load (0.002000)[0m   [0;1mSELECT * FROM accounts [0m
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 'f') [0m
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 'f') [0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 'f') [0m
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 'f') [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM accounts [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 't') [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 'f') [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 't') [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 'f') [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 't') [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 'f') [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 't') [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 'f') [0m
+Completed in 0.08900 (11 reqs/sec) | Rendering: 0.06100 (68%) | DB: 0.00800 (8%) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-02-29 15:24:21) [GET]
+  Session ID: BAh7CjoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACINYXM6YmlsbHN7BjsGewAiKGFz%0AOjJiNWZmYTVlZTY5ODk2OTdjYzViMzk1MWM0ZTAzZGJkewg6EGNvbnN0cmFp%0AbnRzewY6DGFjY291bnQiBjI7BnsGOgpsYWJlbCIeVHJhbnNhY3Rpb25zIGZv%0AciBDaGVja2luZzoPY29uZGl0aW9uczAiCmZsYXNoSUM6J0FjdGlvbkNvbnRy%0Ab2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--f95c326b58916d7e06fd0140c11522ab58de97c6
+  Parameters: {"action"=>"index", "controller"=>"home"}
+  [4;36;1mAccount Load (0.002000)[0m   [0;1mSELECT * FROM accounts [0m
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 'f') [0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 'f') [0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 'f') [0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 'f') [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM accounts [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 't') [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 'f') [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 't') [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 'f') [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 't') [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 'f') [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 't') [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 'f') [0m
+Completed in 0.09700 (10 reqs/sec) | Rendering: 0.07200 (74%) | DB: 0.00500 (5%) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-02-29 15:24:43) [GET]
+  Session ID: BAh7CjoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACINYXM6YmlsbHN7BjsGewAiKGFz%0AOjJiNWZmYTVlZTY5ODk2OTdjYzViMzk1MWM0ZTAzZGJkewg6EGNvbnN0cmFp%0AbnRzewY6DGFjY291bnQiBjI7BnsGOgpsYWJlbCIeVHJhbnNhY3Rpb25zIGZv%0AciBDaGVja2luZzoPY29uZGl0aW9uczAiCmZsYXNoSUM6J0FjdGlvbkNvbnRy%0Ab2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--f95c326b58916d7e06fd0140c11522ab58de97c6
+  Parameters: {"action"=>"index", "controller"=>"home"}
+  [4;36;1mAccount Load (0.001000)[0m   [0;1mSELECT * FROM accounts [0m
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 'f') [0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 'f') [0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 'f') [0m
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 'f') [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM accounts [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 't') [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 'f') [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 't') [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 'f') [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 't') [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 'f') [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 't') [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 'f') [0m
+Completed in 0.09000 (11 reqs/sec) | Rendering: 0.06400 (71%) | DB: 0.00400 (4%) | 200 OK [http://localhost/]
+
+
+Processing ReportsController#index (for 127.0.0.1 at 2008-02-29 15:24:53) [GET]
+  Session ID: BAh7CjoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACINYXM6YmlsbHN7BjsGewAiKGFz%0AOjJiNWZmYTVlZTY5ODk2OTdjYzViMzk1MWM0ZTAzZGJkewg6EGNvbnN0cmFp%0AbnRzewY6DGFjY291bnQiBjI7BnsGOgpsYWJlbCIeVHJhbnNhY3Rpb25zIGZv%0AciBDaGVja2luZzoPY29uZGl0aW9uczAiCmZsYXNoSUM6J0FjdGlvbkNvbnRy%0Ab2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--f95c326b58916d7e06fd0140c11522ab58de97c6
+  Parameters: {"action"=>"index", "controller"=>"reports"}
+Rendering template within layouts/application
+Rendering reports/index
+Completed in 0.01300 (76 reqs/sec) | Rendering: 0.00700 (53%) | DB: 0.00000 (0%) | 200 OK [http://localhost/reports]
+
+
+Processing ReportsController#spending_by_category (for 127.0.0.1 at 2008-02-29 15:24:56) [GET]
+  Session ID: BAh7CjoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACINYXM6YmlsbHN7BjsGewAiKGFz%0AOjJiNWZmYTVlZTY5ODk2OTdjYzViMzk1MWM0ZTAzZGJkewg6EGNvbnN0cmFp%0AbnRzewY6DGFjY291bnQiBjI7BnsGOgpsYWJlbCIeVHJhbnNhY3Rpb25zIGZv%0AciBDaGVja2luZzoPY29uZGl0aW9uczAiCmZsYXNoSUM6J0FjdGlvbkNvbnRy%0Ab2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--f95c326b58916d7e06fd0140c11522ab58de97c6
+  Parameters: {"action"=>"spending_by_category", "id"=>"1", "controller"=>"reports"}
+  [4;36;1mCategory Load (0.002000)[0m   [0;1mSELECT * FROM categories [0m
+Rendering template within layouts/application
+Rendering reports/spending_by_category
+  [4;35;1mBill Load (0.001000)[0m   [0mSELECT * FROM bills WHERE (bills.category_id = 1) [0m
+  [4;36;1mAccount Load (0.000000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;35;1mPayee Load (0.001000)[0m   [0mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+  [4;36;1mBill Load (0.001000)[0m   [0;1mSELECT * FROM bills WHERE (bills.category_id = 2) [0m
+  [4;35;1mAccount Load (0.001000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+Completed in 0.08300 (12 reqs/sec) | Rendering: 0.05800 (69%) | DB: 0.00600 (7%) | 200 OK [http://localhost/reports/spending_by_category/1]
+
+
+Processing ReportsController#spending_by_category (for 127.0.0.1 at 2008-02-29 15:25:13) [GET]
+  Session ID: BAh7CjoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACINYXM6YmlsbHN7BjsGewAiKGFz%0AOjJiNWZmYTVlZTY5ODk2OTdjYzViMzk1MWM0ZTAzZGJkewg6EGNvbnN0cmFp%0AbnRzewY6DGFjY291bnQiBjI7BnsGOgpsYWJlbCIeVHJhbnNhY3Rpb25zIGZv%0AciBDaGVja2luZzoPY29uZGl0aW9uczAiCmZsYXNoSUM6J0FjdGlvbkNvbnRy%0Ab2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--f95c326b58916d7e06fd0140c11522ab58de97c6
+  Parameters: {"action"=>"spending_by_category", "id"=>"1", "controller"=>"reports"}
+  [4;35;1mCategory Load (0.002000)[0m   [0mSELECT * FROM categories [0m
+Rendering template within layouts/application
+Rendering reports/spending_by_category
+  [4;36;1mBill Load (0.001000)[0m   [0;1mSELECT * FROM bills WHERE (bills.category_id = 1) [0m
+  [4;35;1mAccount Load (0.001000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;36;1mPayee Load (0.001000)[0m   [0;1mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+  [4;35;1mBill Load (0.002000)[0m   [0mSELECT * FROM bills WHERE (bills.category_id = 2) [0m
+  [4;36;1mAccount Load (0.000000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+Completed in 0.10200 (9 reqs/sec) | Rendering: 0.07700 (75%) | DB: 0.00700 (6%) | 200 OK [http://localhost/reports/spending_by_category/1]
+
+
+Processing ReportsController#spending_by_category (for 127.0.0.1 at 2008-02-29 15:26:36) [GET]
+  Session ID: BAh7CjoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACINYXM6YmlsbHN7BjsGewAiKGFz%0AOjJiNWZmYTVlZTY5ODk2OTdjYzViMzk1MWM0ZTAzZGJkewg6EGNvbnN0cmFp%0AbnRzewY6DGFjY291bnQiBjI7BnsGOgpsYWJlbCIeVHJhbnNhY3Rpb25zIGZv%0AciBDaGVja2luZzoPY29uZGl0aW9uczAiCmZsYXNoSUM6J0FjdGlvbkNvbnRy%0Ab2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--f95c326b58916d7e06fd0140c11522ab58de97c6
+  Parameters: {"action"=>"spending_by_category", "id"=>"1", "controller"=>"reports"}
+  [4;36;1mCategory Load (0.002000)[0m   [0;1mSELECT * FROM categories [0m
+Rendering template within layouts/application
+Rendering reports/spending_by_category
+  [4;35;1mBill Load (0.001000)[0m   [0mSELECT * FROM bills WHERE (bills.category_id = 1) [0m
+  [4;36;1mAccount Load (0.001000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;35;1mPayee Load (0.001000)[0m   [0mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+  [4;36;1mBill Load (0.001000)[0m   [0;1mSELECT * FROM bills WHERE (bills.category_id = 2) [0m
+  [4;35;1mAccount Load (0.000000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+Completed in 0.11500 (8 reqs/sec) | Rendering: 0.08900 (77%) | DB: 0.00600 (5%) | 200 OK [http://localhost/reports/spending_by_category/1]
+
+
+Processing ReportsController#spending_by_payee (for 127.0.0.1 at 2008-02-29 15:28:25) [GET]
+  Session ID: BAh7CjoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACINYXM6YmlsbHN7BjsGewAiKGFz%0AOjJiNWZmYTVlZTY5ODk2OTdjYzViMzk1MWM0ZTAzZGJkewg6EGNvbnN0cmFp%0AbnRzewY6DGFjY291bnQiBjI7BnsGOgpsYWJlbCIeVHJhbnNhY3Rpb25zIGZv%0AciBDaGVja2luZzoPY29uZGl0aW9uczAiCmZsYXNoSUM6J0FjdGlvbkNvbnRy%0Ab2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--f95c326b58916d7e06fd0140c11522ab58de97c6
+  Parameters: {"action"=>"spending_by_payee", "id"=>"1", "controller"=>"reports"}
+  [4;35;1mPayee Load (0.001000)[0m   [0mSELECT * FROM payees [0m
+Rendering template within layouts/application
+Rendering reports/spending_by_payee
+  [4;36;1mBill Load (0.002000)[0m   [0;1mSELECT * FROM bills WHERE (bills.payee_id = 2) [0m
+  [4;35;1mAccount Load (0.000000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+  [4;36;1mPayee Load (0.000000)[0m   [0;1mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+  [4;35;1mAccount Load (0.001000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+Completed in 0.08100 (12 reqs/sec) | Rendering: 0.05900 (72%) | DB: 0.00400 (4%) | 200 OK [http://localhost/reports/spending_by_payee/1]
+
+
+Processing ReportsController#spending_by_payee (for 127.0.0.1 at 2008-02-29 15:28:48) [GET]
+  Session ID: BAh7CjoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACINYXM6YmlsbHN7BjsGewAiKGFz%0AOjJiNWZmYTVlZTY5ODk2OTdjYzViMzk1MWM0ZTAzZGJkewg6EGNvbnN0cmFp%0AbnRzewY6DGFjY291bnQiBjI7BnsGOgpsYWJlbCIeVHJhbnNhY3Rpb25zIGZv%0AciBDaGVja2luZzoPY29uZGl0aW9uczAiCmZsYXNoSUM6J0FjdGlvbkNvbnRy%0Ab2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--f95c326b58916d7e06fd0140c11522ab58de97c6
+  Parameters: {"action"=>"spending_by_payee", "id"=>"1", "controller"=>"reports"}
+  [4;35;1mPayee Load (0.002000)[0m   [0mSELECT * FROM payees [0m
+Rendering template within layouts/application
+Rendering reports/spending_by_payee
+  [4;36;1mBill Load (0.002000)[0m   [0;1mSELECT * FROM bills WHERE (bills.payee_id = 2) [0m
+  [4;35;1mAccount Load (0.001000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+  [4;36;1mPayee Load (0.001000)[0m   [0;1mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+  [4;35;1mAccount Load (0.001000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+Completed in 0.10500 (9 reqs/sec) | Rendering: 0.08000 (76%) | DB: 0.00700 (6%) | 200 OK [http://localhost/reports/spending_by_payee/1]
+
+
+Processing ReportsController#spending_by_payee (for 127.0.0.1 at 2008-02-29 15:29:14) [GET]
+  Session ID: BAh7CjoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACINYXM6YmlsbHN7BjsGewAiKGFz%0AOjJiNWZmYTVlZTY5ODk2OTdjYzViMzk1MWM0ZTAzZGJkewg6EGNvbnN0cmFp%0AbnRzewY6DGFjY291bnQiBjI7BnsGOgpsYWJlbCIeVHJhbnNhY3Rpb25zIGZv%0AciBDaGVja2luZzoPY29uZGl0aW9uczAiCmZsYXNoSUM6J0FjdGlvbkNvbnRy%0Ab2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--f95c326b58916d7e06fd0140c11522ab58de97c6
+  Parameters: {"action"=>"spending_by_payee", "id"=>"1", "controller"=>"reports"}
+  [4;35;1mPayee Load (0.002000)[0m   [0mSELECT * FROM payees [0m
+Rendering template within layouts/application
+Rendering reports/spending_by_payee
+  [4;36;1mBill Load (0.002000)[0m   [0;1mSELECT * FROM bills WHERE (bills.payee_id = 2) [0m
+  [4;35;1mAccount Load (0.000000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+  [4;36;1mPayee Load (0.001000)[0m   [0;1mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+  [4;35;1mAccount Load (0.000000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+Completed in 0.08400 (11 reqs/sec) | Rendering: 0.06100 (72%) | DB: 0.00500 (5%) | 200 OK [http://localhost/reports/spending_by_payee/1]
+
+
+Processing ReportsController#spending_by_payee (for 127.0.0.1 at 2008-02-29 15:29:26) [GET]
+  Session ID: BAh7CjoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACINYXM6YmlsbHN7BjsGewAiKGFz%0AOjJiNWZmYTVlZTY5ODk2OTdjYzViMzk1MWM0ZTAzZGJkewg6EGNvbnN0cmFp%0AbnRzewY6DGFjY291bnQiBjI7BnsGOgpsYWJlbCIeVHJhbnNhY3Rpb25zIGZv%0AciBDaGVja2luZzoPY29uZGl0aW9uczAiCmZsYXNoSUM6J0FjdGlvbkNvbnRy%0Ab2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--f95c326b58916d7e06fd0140c11522ab58de97c6
+  Parameters: {"action"=>"spending_by_payee", "id"=>"1", "controller"=>"reports"}
+  [4;35;1mPayee Load (0.001000)[0m   [0mSELECT * FROM payees [0m
+Rendering template within layouts/application
+Rendering reports/spending_by_payee
+  [4;36;1mBill Load (0.001000)[0m   [0;1mSELECT * FROM bills WHERE (bills.payee_id = 2) [0m
+  [4;35;1mAccount Load (0.000000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+  [4;36;1mPayee Load (0.001000)[0m   [0;1mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+  [4;35;1mAccount Load (0.001000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+Completed in 0.08800 (11 reqs/sec) | Rendering: 0.06100 (69%) | DB: 0.00400 (4%) | 200 OK [http://localhost/reports/spending_by_payee/1]
+
+
+Processing ReportsController#spending_by_category (for 127.0.0.1 at 2008-02-29 15:30:10) [GET]
+  Session ID: BAh7CjoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACINYXM6YmlsbHN7BjsGewAiKGFz%0AOjJiNWZmYTVlZTY5ODk2OTdjYzViMzk1MWM0ZTAzZGJkewg6EGNvbnN0cmFp%0AbnRzewY6DGFjY291bnQiBjI7BnsGOgpsYWJlbCIeVHJhbnNhY3Rpb25zIGZv%0AciBDaGVja2luZzoPY29uZGl0aW9uczAiCmZsYXNoSUM6J0FjdGlvbkNvbnRy%0Ab2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--f95c326b58916d7e06fd0140c11522ab58de97c6
+  Parameters: {"action"=>"spending_by_category", "id"=>"1", "controller"=>"reports"}
+  [4;35;1mCategory Load (0.001000)[0m   [0mSELECT * FROM categories [0m
+Rendering template within layouts/application
+Rendering reports/spending_by_category
+  [4;36;1mBill Load (0.001000)[0m   [0;1mSELECT * FROM bills WHERE (bills.category_id = 1) [0m
+  [4;35;1mAccount Load (0.000000)[0m   [0mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;36;1mPayee Load (0.000000)[0m   [0;1mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+  [4;35;1mBill Load (0.001000)[0m   [0mSELECT * FROM bills WHERE (bills.category_id = 2) [0m
+  [4;36;1mAccount Load (0.000000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 1) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM accounts WHERE (accounts."id" = 2) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM payees WHERE (payees."id" = 2) [0m
+Completed in 0.09400 (10 reqs/sec) | Rendering: 0.07200 (76%) | DB: 0.00300 (3%) | 200 OK [http://localhost/reports/spending_by_category/1]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-02-29 15:30:21) [GET]
+  Session ID: BAh7CjoMY3NyZl9pZCIlMWE4NDc5ODhiOTM2NGZkYjdlNGEwOTc4MTdkNWY1%0AODciEGFzOmFjY291bnRzewY6CWxpc3R7ACINYXM6YmlsbHN7BjsGewAiKGFz%0AOjJiNWZmYTVlZTY5ODk2OTdjYzViMzk1MWM0ZTAzZGJkewg6EGNvbnN0cmFp%0AbnRzewY6DGFjY291bnQiBjI7BnsGOgpsYWJlbCIeVHJhbnNhY3Rpb25zIGZv%0AciBDaGVja2luZzoPY29uZGl0aW9uczAiCmZsYXNoSUM6J0FjdGlvbkNvbnRy%0Ab2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--f95c326b58916d7e06fd0140c11522ab58de97c6
+  Parameters: {"action"=>"index", "controller"=>"home"}
+  [4;36;1mAccount Load (0.002000)[0m   [0;1mSELECT * FROM accounts [0m
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 'f') [0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 'f') [0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 'f') [0m
+  [4;35;1mSQL (0.001000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 't') [0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 'f') [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM accounts [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 't') [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 2) AND (transactions."credit" = 'f') [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 't') [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 3) AND (transactions."credit" = 'f') [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 't') [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 4) AND (transactions."credit" = 'f') [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 't') [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT sum(amount) AS sum_amount FROM transactions WHERE (transactions.account_id = 5) AND (transactions."credit" = 'f') [0m
+Completed in 0.06500 (15 reqs/sec) | Rendering: 0.04200 (64%) | DB: 0.00500 (7%) | 200 OK [http://localhost/]

@@ -29,12 +29,12 @@
 				<% for account in @accounts %>
 				  <tr>
 				    <td><%= account.name %></td>
-				    <td><%= account.total %></td>
+				    <td align="right"><%= number_to_currency(account.total) %></td>
 				  </tr>
 				<% end %>				
 				<tr>
 					<td><strong>Balance</strong></td>
-					<td><%= Account.balance %></td>
+					<td align="right"><%= number_to_currency(Account.balance) %></td>
 				</tr>
 				</table>
 			</div>
