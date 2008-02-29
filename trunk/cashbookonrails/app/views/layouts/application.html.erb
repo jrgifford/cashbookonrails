@@ -35,8 +35,7 @@
 				<li><%= link_to "Payees", payees_url %></li>
 				<li><%= link_to "Reports", reports_url %></li>				
 			</ul>
-
-		<div id="date">August 1, 2006</div>
+		<div id="date"><%= Time.now.strftime("%B %d, %Y") %></div>
 		</div>
 	
 		<%= yield  %>
