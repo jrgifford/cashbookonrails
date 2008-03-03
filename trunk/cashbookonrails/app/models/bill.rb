@@ -1,20 +1,20 @@
 class Bill < ActiveRecord::Base
   PAYMENT_METHODS = [
-    # Displayed           stored in db
-    [ "Check" ,           "ck" ],
-    [ "Credit card" ,     "cc" ],
-    [ "Cash" ,            "cs" ]
+    # Displayed         stored in db
+    [ "Check" ,         "ck" ],
+    [ "Credit card" ,   "cc" ],
+    [ "Cash" ,          "cs" ]
   ]
   
   FREQUENCY = [
-    # Displayed      stored in db
-    [ "Only once" ,    "mm" ],
-    [ "Daily" ,     "ya" ],
-    [ "Weekly" ,  "tt" ],
-    [ "Monthly" ,  "tt" ],
-    [ "Twice a month" ,  "tt" ],
-    [ "Yearly" ,  "tt" ],
-    [ "Twice a year" ,  "tt" ]
+    # Displayed         stored in db
+    [ "Only once" ,     "oo" ],
+    [ "Daily" ,         "dy" ],
+    [ "Weekly" ,        "wk" ],
+    [ "Monthly" ,       "mt" ],
+    [ "Twice a month" , "tm" ],
+    [ "Yearly" ,        "yy" ],
+    [ "Twice a year" ,  "ty" ]
   ]  
   
   belongs_to :payee
@@ -44,5 +44,23 @@ class Bill < ActiveRecord::Base
     transaction.credit = self.category.credit
     transaction.account = self.account
     transaction.save
+    
+    case self.frequency
+      # Only once
+      when "oo"
+        self.destroy
+      when "dy"
+        # Daily
+      when "wk"
+        # Weekly
+      when "mt"
+        # Monthly
+      when "tm"
+        # Twice a month
+      when "yy"
+        # Yearly
+      when "ty"
+        # Twice a year
+    end
   end    
 end
