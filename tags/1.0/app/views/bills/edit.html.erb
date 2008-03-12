@@ -1,0 +1,52 @@
+<h1>Editing bill</h1>
+
+<%= error_messages_for :bill %>
+
+<% form_for(@bill) do |f| %>
+  <p>
+    <b>Payee</b><br />
+    <%= f.text_field :payee %>
+  </p>
+
+  <p>
+    <b>Account</b><br />
+    <%= f.text_field :account %>
+  </p>
+
+  <p>
+    <b>Number</b><br />
+    <%= f.text_field :number %>
+  </p>
+
+  <p>
+    <b>Next payment date</b><br />
+    <%= f.date_select :next_payment_date %>
+  </p>
+
+  <p>
+    <b>Payment method</b><br />
+    <%= f.text_field :payment_method %>
+  </p>
+
+  <p>
+    <b>Frequency</b><br />
+    <%= f.text_field :frequency %>
+  </p>
+
+  <p>
+    <b>Amount</b><br />
+    <%= f.text_field :amount %>
+  </p>
+
+  <p>
+    <b>Category</b><br />
+    <%= f.text_field :category %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @bill %> |
+<%= link_to 'Back', bills_path %>

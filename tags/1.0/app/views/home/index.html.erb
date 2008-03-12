@@ -1,0 +1,45 @@
+		<div id="primarycontent">
+		
+			<!-- primary content start -->
+		
+			<div class="post">
+				<div class="header">
+					<h3>Welcome to cashbook<sup>1.0</sup> by tomrabelo</h3>
+				</div>
+				<div class="content">
+					<img src="images/pic1.jpg" class="picA floatleft" alt="" />
+					<p>Be welcome. <strong>cashbook</strong><sup>1.0</sup> is a personal financial application, helping anyone to manage (in a simple way) his money, from whom the must receive money and for whom he own money :)</p>
+					<p>You can find more of our free work at this site or <a href="http://code.google.com/p/cashbookonrails/">our site</a>.</p>
+				</div>			
+				<div class="footer">
+				</div>
+			</div>
+		
+			<!-- primary content end -->
+	
+		</div>
+		
+		<div id="secondarycontent">
+
+			<!-- secondary content start -->
+		
+			<h3>Statistics</h3>
+			<div class="content">
+				<table>
+				<% for account in @accounts %>
+				  <tr>
+				    <td><%= account.name %></td>
+				    <td align="right"><%= number_to_currency(account.total) %></td>
+				  </tr>
+				<% end %>				
+				<tr>
+					<td><strong>Balance</strong></td>
+					<td align="right"><%= number_to_currency(Account.balance) %></td>
+				</tr>
+				</table>
+			</div>
+
+
+			<!-- secondary content end -->
+
+		</div>
