@@ -1,0 +1,56 @@
+<div id="primarycontent">
+
+	<!-- primary content start -->
+
+	<div class="post">
+		<div class="header">
+			<h3>Listing bills</h3>
+		</div>
+		<div class="content">
+
+			<table>
+			  <tr>
+			    <th>Payee</th>
+			    <th>Account</th>
+			    <th>Number</th>
+			    <th>Next payment date</th>
+			    <th>Payment method</th>
+			    <th>Frequency</th>
+			    <th>Amount</th>
+			    <th>Category</th>
+			    <th>Paid</th>
+			  </tr>
+			
+			<% for bill in @bills %>
+			  <tr>
+			    <td><%=h bill.payee.name %></td>
+			    <td><%=h bill.account.name %></td>
+			    <td><%=h bill.number %></td>
+			    <td><%=h bill.next_payment_date %></td>
+			    <td><%=h bill.payment_method %></td>
+			    <td><%=h bill.frequency %></td>
+			    <td><%=h number_to_currency(bill.amount) %></td>
+			    <td><%=h bill.category.name %></td>
+			    <td><%=h bill.paid %></td>
+			    <td><%= link_to 'Pay', {:action => "pay", :id => bill}, :confirm => 'Are you sure?' %></td>
+			    <td><%= link_to 'Show', bill %></td>
+			    <td><%= link_to 'Edit', edit_bill_path(bill) %></td>
+			    <td><%= link_to 'Destroy', bill, :confirm => 'Are you sure?', :method => :delete %></td>
+			  </tr>
+			<% end %>
+			</table>
+			
+			<br />
+			
+			<%= link_to 'New bill', new_bill_path %>
+			
+			<br />
+			<br />
+		</div>			
+		<div class="footer">
+		</div>
+	</div>
+
+	<!-- primary content end -->
+
+</div>

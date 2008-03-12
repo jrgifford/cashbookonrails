@@ -1,0 +1,60 @@
+<div id="primarycontent">
+
+	<!-- primary content start -->
+
+	<div class="post">
+		<div class="header">
+			<h3>New transaction</h3>
+		</div>
+		<div class="content">
+
+			<%= error_messages_for :transaction %>
+			
+			<% form_for(@transaction) do |f| %>
+			  <p>
+			    <b>Date</b><br />
+			    <%= f.date_select :date %>
+			  </p>
+			
+			  <p>
+			    <b>Number</b><br />
+			    <%= f.text_field :number %>
+			  </p>
+			
+			  <p>
+			    <b>Payee category</b><br />
+			    <%= f.text_field :payee_category %>
+			  </p>
+			
+			  <p>
+			    <b>Amount</b><br />
+			    <%= f.text_field :amount %>
+			  </p>
+			
+			  <p>
+			    <b>Credit</b><br />
+			    <%= f.check_box :credit %>
+			  </p>
+			
+			  <p>
+			    <b>Account</b><br />
+			    <%= f.select :account_id, @accounts %>
+			  </p>
+			
+			  <p>
+			    <%= f.submit "Create" %>
+			  </p>
+			<% end %>
+			
+			<%= link_to 'Back', transactions_path %>
+		
+			<br />
+			<br />
+		</div>			
+		<div class="footer">
+		</div>
+	</div>
+
+	<!-- primary content end -->
+
+</div>
