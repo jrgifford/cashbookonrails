@@ -1,0 +1,49 @@
+<div id="primarycontent">
+
+	<!-- primary content start -->
+
+	<div class="post">
+		<div class="header">
+			<h3>Listing transactions</h3>
+		</div>
+		<div class="content">
+
+			<table>
+			  <tr>
+			    <th>Date</th>
+			    <th>Number</th>
+			    <th>Payee category</th>
+			    <th>Amount</th>
+			    <th>Credit</th>
+			    <th>Account</th>
+			  </tr>
+			
+			<% for transaction in @transactions %>
+			  <tr>
+			    <td><%=h transaction.date %></td>
+			    <td><%=h transaction.number %></td>
+			    <td><%=h transaction.payee_category %></td>
+			    <td><%=h number_to_currency(transaction.amount) %></td>
+			    <td><%=h transaction.credit %></td>
+			    <td><%=h transaction.account.name %></td>
+			    <td><%= link_to 'Show', transaction %></td>
+			    <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
+			    <td><%= link_to 'Destroy', transaction, :confirm => 'Are you sure?', :method => :delete %></td>
+			  </tr>
+			<% end %>
+			</table>
+			
+			<br />
+			
+			<%= link_to 'New transaction', new_transaction_path %>
+			
+			<br />
+			<br />
+		</div>			
+		<div class="footer">
+		</div>
+	</div>
+
+	<!-- primary content end -->
+
+</div>

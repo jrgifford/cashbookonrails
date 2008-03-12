@@ -1,0 +1,40 @@
+<div id="primarycontent">
+
+	<!-- primary content start -->
+
+	<div class="post">
+		<div class="header">
+			<h3>New category</h3>
+		</div>
+		<div class="content">
+
+			<%= error_messages_for :category %>
+			
+			<% form_for(@category) do |f| %>
+			  <p>
+			    <b>Name</b><br />
+			    <%= f.text_field :name %>
+			  </p>
+			
+			  <p>
+			    <b>Credit</b><br />
+			    <%= f.check_box :credit %>
+			  </p>
+			
+			  <p>
+			    <%= f.submit "Create" %>
+			  </p>
+			<% end %>
+			
+			<%= link_to 'Back', categories_path %>
+			
+			<br />
+			<br />
+		</div>			
+		<div class="footer">
+		</div>
+	</div>
+
+	<!-- primary content end -->
+
+</div>

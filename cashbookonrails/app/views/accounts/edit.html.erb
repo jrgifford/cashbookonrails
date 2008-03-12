@@ -1,0 +1,41 @@
+<div id="primarycontent">
+
+	<!-- primary content start -->
+
+	<div class="post">
+		<div class="header">
+			<h3>Editing account</h3>
+		</div>
+		<div class="content">
+
+			<%= error_messages_for :account %>
+			
+			<% form_for(@account) do |f| %>
+			  <p>
+			    <b>Name</b><br />
+			    <%= f.text_field :name %>
+			  </p>
+			
+			  <p>
+			    <b>Number</b><br />
+			    <%= f.text_field :number %>
+			  </p>
+			
+			  <p>
+			    <%= f.submit "Update" %>
+			  </p>
+			<% end %>
+			
+			<%= link_to 'Show', @account %> |
+			<%= link_to 'Back', accounts_path %>
+			
+			<br />
+			<br />
+		</div>			
+		<div class="footer">
+		</div>
+	</div>
+
+	<!-- primary content end -->
+
+</div>

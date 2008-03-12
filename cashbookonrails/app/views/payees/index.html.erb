@@ -1,0 +1,41 @@
+<div id="primarycontent">
+
+	<!-- primary content start -->
+
+	<div class="post">
+		<div class="header">
+			<h3>Listing payees</h3>
+		</div>
+		<div class="content">
+
+			<table>
+			  <tr>
+			    <th>Name</th>
+			    <th>Phone number</th>
+			  </tr>
+			
+			<% for payee in @payees %>
+			  <tr>
+			    <td><%=h payee.name %></td>
+			    <td><%=h payee.phone_number %></td>
+			    <td><%= link_to 'Show', payee %></td>
+			    <td><%= link_to 'Edit', edit_payee_path(payee) %></td>
+			    <td><%= link_to 'Destroy', payee, :confirm => 'Are you sure?', :method => :delete %></td>
+			  </tr>
+			<% end %>
+			</table>
+			
+			<br />
+			
+			<%= link_to 'New payee', new_payee_path %>
+			
+			<br />
+			<br />
+		</div>			
+		<div class="footer">
+		</div>
+	</div>
+
+	<!-- primary content end -->
+
+</div>

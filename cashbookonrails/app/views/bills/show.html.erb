@@ -1,0 +1,48 @@
+<p>
+  <b>Payee:</b>
+  <%=h @bill.payee.name %>
+</p>
+
+<p>
+  <b>Account:</b>
+  <%=h @bill.account.name %>
+</p>
+
+<p>
+  <b>Number:</b>
+  <%=h @bill.number %>
+</p>
+
+<p>
+  <b>Next payment date:</b>
+  <%=h @bill.next_payment_date %>
+</p>
+
+<p>
+  <b>Payment method:</b>
+  <%=h @bill.payment_method %>
+</p>
+
+<p>
+  <b>Frequency:</b>
+  <%=h @bill.frequency %>
+</p>
+
+<p>
+  <b>Amount:</b>
+  <%=h number_to_currency(@bill.amount) %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%=h @bill.category.name %>
+</p>
+
+<p>
+  <b>Paid:</b>
+  <%=h @bill.paid %>
+</p>
+
+
+<%= link_to 'Edit', edit_bill_path(@bill) %> |
+<%= link_to 'Back', bills_path %>

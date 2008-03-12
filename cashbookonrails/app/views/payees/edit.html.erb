@@ -1,0 +1,41 @@
+<div id="primarycontent">
+
+	<!-- primary content start -->
+
+	<div class="post">
+		<div class="header">
+			<h3>Editing payee</h3>
+		</div>
+		<div class="content">
+
+			<%= error_messages_for :payee %>
+			
+			<% form_for(@payee) do |f| %>
+			  <p>
+			    <b>Name</b><br />
+			    <%= f.text_field :name %>
+			  </p>
+			
+			  <p>
+			    <b>Phone number</b><br />
+			    <%= f.text_field :phone_number %>
+			  </p>
+			
+			  <p>
+			    <%= f.submit "Update" %>
+			  </p>
+			<% end %>
+			
+			<%= link_to 'Show', @payee %> |
+			<%= link_to 'Back', payees_path %>
+			
+			<br />
+			<br />
+		</div>			
+		<div class="footer">
+		</div>
+	</div>
+
+	<!-- primary content end -->
+
+</div>
