@@ -1,0 +1,42 @@
+<h1>Editing transaction</h1>
+
+<%= error_messages_for :transaction %>
+
+<% form_for(@transaction) do |f| %>
+  <p>
+    <b>Date</b><br />
+    <%= f.date_select :date %>
+  </p>
+
+  <p>
+    <b>Number</b><br />
+    <%= f.text_field :number %>
+  </p>
+
+  <p>
+    <b>Payee category</b><br />
+    <%= f.text_field :payee_category %>
+  </p>
+
+  <p>
+    <b>Amount</b><br />
+    <%= f.text_field :amount %>
+  </p>
+
+  <p>
+    <b>Credit</b><br />
+    <%= f.check_box :credit %>
+  </p>
+
+  <p>
+    <b>Account</b><br />
+    <%= f.text_field :account %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @transaction %> |
+<%= link_to 'Back', transactions_path %>

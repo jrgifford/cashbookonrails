@@ -1,0 +1,68 @@
+		<div id="primarycontent">
+		
+			<!-- primary content start -->
+		
+			<div class="post">
+				<div class="header">
+					<h3>Preview - Spending by payee</h3>
+				</div>
+				<div class="content">	
+					<% for payee in @payees %>
+						<p><h3><%= payee.name %></h3></p>
+						<table cellspacing="10">
+							<tr>
+								<th>Number</th>
+								<th>Account</th>
+								<th>Payee</th>
+								<th>Payment method</th>								
+								<th>Amount</th>
+							</tr>
+						<% for bill in payee.bills %>
+							<tr>
+								<td><%= bill.number %></td>
+								<td><%= bill.account %></td>
+								<td><%= bill.payee %></td>
+								<td><%= bill.payment_method %></td>
+								<td><%= number_to_currency(bill.amount) %></td>
+							</tr>
+						<% end %>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td align="right">Total - </td>								
+								<td>$999.00</td>
+							</tr>
+						</table>
+					<% end %>				
+					</br>
+				</div>			
+				<div class="footer">
+					<ul>
+						<li class="printerfriendly"><a href="#">Printer Friendly</a></li>
+					</ul>
+				</div>
+			</div>
+		
+			<!-- primary content end -->
+	
+		</div>
+		
+		<div id="secondarycontent">
+
+			<!-- secondary content start -->
+			
+			<h3>Reports</h3>
+			<div class="content">
+				<ul class="linklist">
+					<li class="first"><%= link_to "Spending by category", { :action => "spending_by_category", :id => "1" } %></li>
+					<li><%= link_to "Spending by payee", { :action => "spending_by_payee", :id => "1" } %></li>
+					<li><%= link_to "Credit card debt", { :action => "credit_card_debt", :id => "1" } %></li>
+					<li><%= link_to "Top five expense categories", { :action => "top_five_expense_categories", :id => "1" } %></li>
+					<li><%= link_to "Pending transactions", { :action => "spending_transactions", :id => "1" } %></li>
+				</ul>
+			</div>
+
+			<!-- secondary content end -->
+
+		</div>		
